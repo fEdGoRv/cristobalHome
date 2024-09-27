@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Button from "./button";
 import { cartActions } from "../store/cartSlice";
 import cart from "../util/icons/icons8-carrito-de-compras-24.png"
@@ -11,12 +12,16 @@ const Card = ({ name, image, description, price, id }) => {
             image,
             price,
             id
-        }))
+        }));
+    }
+    const navigate = useNavigate();
+    const showDetails = () => {
+        navigate(`prodDetail/${id}`);
     }
     return (
         <div className="relative m-4 flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96">
-            <div className="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
-                <img src={image} alt="card-image" />
+            <div className="relative m-2.5 overflow-hidden text-white rounded-md">
+                <img src={`../pinchos/${image}`} alt="card-image" />
             </div>
             <div className="p-4">
                 <h6 className="mb-2 text-slate-800 text-xl font-semibold">
@@ -30,7 +35,7 @@ const Card = ({ name, image, description, price, id }) => {
                 <Button onClick={addItem} type="button">
                    <span className="flex">Add+<img src={cart} alt="carrito"/></span>
                 </Button>
-                <Button classes="cardButton" type="button">
+                <Button onClick={showDetails} classes="cardButton" type="button">
                     Read more
                 </Button>
             </div>

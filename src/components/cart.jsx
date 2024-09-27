@@ -14,7 +14,7 @@ const Cart = () => {
                 Tu carrito
             </h1>
             <ul>{cart.map((item) => {
-                return <li>
+                return <li className="justify-center" >
                     <CartItem
                         key={item.id}
                         item={{

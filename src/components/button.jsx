@@ -5,7 +5,9 @@ export default function Button({ children, classes, ...props }) {
     
     const cartItemButton = `w-5 rounded-full ${defButton}`;
 
-    const modalCancel = ` w-8 ${defButton}`
+    const modalCancel = ` w-8 ${defButton}`;
+
+    const headerButton =`bg-opacity-5 p-2 rounded border-solid border-2 hover:border-stone-900`
 
     switch (classes){
         default :
@@ -19,6 +21,9 @@ export default function Button({ children, classes, ...props }) {
             break;
         case 'modalCancel' :
             classes = modalCancel;
+            break;
+        case 'headerButton' :
+            classes = headerButton;
             break;
         }
     return <button className={classes} {...props}>

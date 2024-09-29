@@ -4,19 +4,19 @@ import Button from "./button";
 import { cartActions } from "../store/cartSlice";
 import cart from "../util/icons/icons8-carrito-de-compras-24.png"
 
-const Card = ({ name, image, description, price, id }) => {
+const Card = ({ name, image, description, price, id:prodId }) => {
     const dispatch = useDispatch();
     const addItem = () => {
         dispatch(cartActions.addItemToCart({
             name,
             image,
             price,
-            id
+            id: prodId
         }));
     }
     const navigate = useNavigate();
     const showDetails = () => {
-        navigate(`prodDetail/${id}`);
+        navigate(`prodDetail/${prodId}`);
     }
     return (
         <div className="relative m-4 flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96">
@@ -27,16 +27,16 @@ const Card = ({ name, image, description, price, id }) => {
                 <h6 className="mb-2 text-slate-800 text-xl font-semibold">
                     {name}
                 </h6>
-                <p className="text-slate-600 leading-normal font-light">
+                {/* <p className="text-slate-600 leading-normal font-light">
                     {description}
-                </p>
+                </p> */}
             </div>
             <div className="px-4 pb-4 pt-0 mt-2">
                 <Button onClick={addItem} type="button">
                    <span className="flex">Add+<img src={cart} alt="carrito"/></span>
                 </Button>
                 <Button onClick={showDetails} classes="cardButton" type="button">
-                    Read more
+                    Ver Detalles
                 </Button>
             </div>
         </div>

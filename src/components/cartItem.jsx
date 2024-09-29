@@ -22,13 +22,21 @@ const CartItem = (props) => {
   }
 
   return (
-    <div className="flex flex-row bg-stone-400">
-      <img src={image} alt="foti" />
-      <p>{name} -precio unitario: ${price}- </p>
-      <Button classes="cartItem" onClick={addItem} ><img src={plusIcon} alt='suma' /></Button>
-      <h6>{quantity}</h6>
-      <Button classes="cartItem" onClick={removeItem}><img src={lessIcon} alt='rsta' /></Button>
-      <p>Precio total: {totalPrice}</p>
+    <div className="flex flex-row justify-center bg-stone-400">
+      <div className='max-w-10' >
+        <img src={`/pinchos/${image}`} alt="foti" />
+      </div>
+      <div className='flex' >
+        <p className='w-96'>{name} -precio unitario: ${price} - </p>
+        <div className='max-h-10' >
+          <Button classes="cartItem" onClick={addItem} ><img src={plusIcon} alt='suma' /></Button>
+        </div>
+        <h6>{quantity}</h6>
+        <div className='max-h-10' >
+          <Button classes="cartItem" onClick={removeItem}><img src={lessIcon} alt='rsta' /></Button>
+        </div>
+        <p>Precio total: {totalPrice}</p>
+      </div>
     </div>
   )
 }

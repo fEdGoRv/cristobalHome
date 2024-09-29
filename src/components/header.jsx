@@ -31,46 +31,51 @@ export default function Header() {
             </div>
         </div>
 
-        <header class="bg-white bg-opacity-5 text-white shadow-lg hidden md:block">
-            <div class="container mx-auto flex items-center h-24">
-                <a href="" class="flex items-center justify-center">
-                    <img class="h-16" src="/pinchos/cristobal logo.jpg" alt="" />
+        <header className="bg-white bg-opacity-5 text-white shadow-lg hidden md:block">
+            <div className="container mx-auto flex items-center h-24">
+                <a href="" className="flex items-center justify-center">
+                    <img className="h-16" src="/pinchos/cristobal logo.jpg" alt="" />
                 </a>
-                <nav class="contents font-semibold text-base lg:text-lg">
-                    <ul class="mx-auto flex items-center">
-                        <li class="p-5 xl:p-8 active">
+                <nav className="contents font-semibold text-base lg:text-lg">
+                    <ul className="mx-auto flex items-center">
+                        <li className="p-5 xl:p-8">
+                            <Button classes="headerButton" onClick={() => navigate("")}>
+                                Home
+                            </Button>
+                        </li>
+                        <li className="p-5 xl:p-8">
                             <Button classes="headerButton" onClick={() => navigate("/categories/chapas")}>
                                 Chapas
                             </Button>
                         </li>
-                        <li class="p-5 xl:p-8">
+                        <li className="p-5 xl:p-8">
                             <Button classes="headerButton" onClick={() => navigate("/categories/accesorios")}>
                                 Accesorios
                             </Button>
                         </li>
-                        <li class="p-5 xl:p-8">
+                        <li className="p-5 xl:p-8">
                             <Button classes="headerButton" onClick={() => navigate("/categories/pinchos")}>
                                 Pinchos
                             </Button>
                         </li>
-                        <li class="p-5 xl:p-8">
+                        <li className="p-5 xl:p-8">
                             <Button classes="headerButton" onClick={() => navigate("/categories/exteriores")}>
                                 Exteriores
                             </Button>
                         </li>
-                        <li class="p-5 xl:p-8">
+                        <li className="p-5 xl:p-8">
                             <Button classes="headerButton" onClick={() => navigate("/categories/fogones")}>
                                 Fogones
                             </Button>
                         </li>
-                        <li class="p-5 xl:p-8">
+                        <li className="p-5 xl:p-8">
                             <Button classes="headerButton" onClick={() => navigate("/categories/proyectos")}>
                                 Proyectos
                             </Button>
                         </li>
                     </ul>
                 </nav>
-                <button class="border border-white rounded-full font-bold px-8 py-2">Contact me</button>
+                <button className="border border-white rounded-full font-bold px-8 py-2">Contact me</button>
             </div>
         </header>
     </>

@@ -7,7 +7,7 @@ export default function Button({ children, classes, ...props }) {
 
     const modalCancel = ` w-8 ${defButton}`;
 
-    const headerButton =`bg-opacity-5 p-2 rounded border-solid border-2 hover:border-stone-900`
+    const headerButton =`bg-opacity-5 p-2 rounded border-solid border-2 hover:border-stone-900 active:bg-stone-900`
 
     switch (classes){
         default :

@@ -4,13 +4,33 @@ import { useDispatch } from "react-redux";
 
 import Button from "./button";
 import { cartActions } from "../store/cartSlice";
+import { useEffect, useState } from "react";
 
 const ItemDetails = () => {
-  
-  const {id} = useParams();
-  const product = products.pinchos.find(item => item.id === id);
-  //className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
   const dispatch = useDispatch();
+  const {prodId, catId} = useParams();
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if(products[catId]){
+    const product = products[catId]?.find(item => item.id === prodId);
+    setLoading(false);
+    setProduct(product);
+    }
+  }, 
+  [prodId, catId]);
+
+  if(loading){
+    return <p>Loading...</p>
+  }
+  
+  if(!product){
+    return <p>Product not ready</p> ;
+  }
+  
+  //className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
+  
   const addItem = () => {
     dispatch(cartActions.addItemToCart({
       id: product.id,
@@ -19,13 +39,11 @@ const ItemDetails = () => {
       image: product.image
     }))
   }
-    
-
     return (
         <div className=" m-6 max-w-lg mx-auto bg-white rounded-lg shadow-md overflow-hidden">
           <img
-            className="w-full h-48 object-cover"
-            src={product.image}
+            className="w-full h-96 object-cover"
+            src={`/pinchos/${product.image}`}
             alt={product.name}
           />
           <div className="p-6">

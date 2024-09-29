@@ -22,7 +22,6 @@ const Main = () => {
                 <Cart />
             </Modal>
             <div>
-                <h1>Acá te presentamos nuetros productos.</h1>
                 <main>
                     <Outlet />
                 </main>

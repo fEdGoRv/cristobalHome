@@ -4,15 +4,18 @@ import cart from "../util/icons/icons8-carrito-de-compras-24.png";
 import Button from "./button";
 import { modalActions } from "../store/modalSlice";
 import { useNavigate } from "react-router-dom";
-
+import { useState } from "react"; // Import for dropdown functionality
 
 export default function Header() {
     const totalQuantity = useSelector(state => state.cart.totalQuantity);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const openModal = () => {
         dispatch(modalActions.openModalHandler());
     }
-    const navigate = useNavigate();
+
+    const [dropdownOpen, setDropdownOpen] = useState(false);
 
     return <>
         <div className="flex bg-stone-700 ">
@@ -22,7 +25,7 @@ export default function Header() {
                 </h1>
             </div>
             <div>
-                <Button onClick={openModal} >
+                <Button onClick={openModal}>
                     <span className="flex text-black">
                         <div className="pr-2">{totalQuantity > 0 && totalQuantity}</div>
                         <img src={cart} alt="cart/logo" />
@@ -44,34 +47,54 @@ export default function Header() {
                             </Button>
                         </li>
                         <li className="p-5 xl:p-8">
-                            <Button classes="headerButton" onClick={() => navigate("/categories/chapas")}>
-                                Chapas
+                            <Button classes="headerButton" onClick={() => navigate("/about")}>
+                                Sobre Nosotros
                             </Button>
                         </li>
-                        <li className="p-5 xl:p-8">
-                            <Button classes="headerButton" onClick={() => navigate("/categories/accesorios")}>
-                                Accesorios
+                        <li className="relative p-5 xl:p-8">
+                            <Button classes="headerButton" onClick={() => setDropdownOpen(!dropdownOpen)}>
+                                Productos
                             </Button>
-                        </li>
-                        <li className="p-5 xl:p-8">
-                            <Button classes="headerButton" onClick={() => navigate("/categories/pinchos")}>
-                                Pinchos
-                            </Button>
-                        </li>
-                        <li className="p-5 xl:p-8">
-                            <Button classes="headerButton" onClick={() => navigate("/categories/exteriores")}>
-                                Exteriores
-                            </Button>
-                        </li>
-                        <li className="p-5 xl:p-8">
-                            <Button classes="headerButton" onClick={() => navigate("/categories/fogones")}>
-                                Fogones
-                            </Button>
-                        </li>
-                        <li className="p-5 xl:p-8">
-                            <Button classes="headerButton" onClick={() => navigate("/categories/proyectos")}>
-                                Proyectos
-                            </Button>
+                            {dropdownOpen && (
+                                <ul className="absolute max-w-48 left-0 mt-1 bg-orange-300 border-solid border-white border-2 p-2 shadow-lg rounded-md z-50">
+                                    <Button classes="headerButton" onClick={() => {
+                                        navigate("/categories/chapas");
+                                        setDropdownOpen(false);
+                                    }}>
+                                        Chapas
+                                    </Button>
+                                    <Button classes="headerButton" onClick={() => {
+                                        navigate("/categories/accesorios");
+                                        setDropdownOpen(false);
+                                    }}>
+                                        Accesorios
+                                    </Button>
+                                    <Button classes="headerButton" onClick={() => {
+                                        navigate("/categories/pinchos");
+                                        setDropdownOpen(false);
+                                    }}>
+                                        Pinchos
+                                    </Button>
+                                    <Button classes="headerButton" onClick={() => {
+                                        navigate("/categories/exteriores");
+                                        setDropdownOpen(false);
+                                    }}>
+                                        Exteriores
+                                    </Button>
+                                    <Button classes="headerButton" onClick={() => {
+                                        navigate("/categories/fogones");
+                                        setDropdownOpen(false);
+                                    }}>
+                                        Fogones
+                                    </Button>
+                                    <Button classes="headerButton" onClick={() => {
+                                        navigate("/categories/proyectos");
+                                        setDropdownOpen(false);
+                                    }}>
+                                        Proyectos
+                                    </Button>
+                                </ul>
+                            )}
                         </li>
                     </ul>
                 </nav>

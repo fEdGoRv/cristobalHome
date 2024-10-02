@@ -27,7 +27,9 @@ export default function Header() {
             <div>
                 <Button onClick={openModal}>
                     <span className="flex text-black">
-                        <div className="pr-2">{totalQuantity > 0 && totalQuantity}</div>
+                        <div className="pr-2">
+                            {totalQuantity > 0 && totalQuantity}
+                        </div>
                         <img src={cart} alt="cart/logo" />
                     </span>
                 </Button>

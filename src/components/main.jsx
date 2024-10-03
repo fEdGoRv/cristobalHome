@@ -16,7 +16,7 @@ const Main = () => {
     }
 
     return (
-        <div className="text-center bg-orange-300">
+        <div className="bg-[url('/public/pinchos/DSC_2781.jpg')] bg-cover bg-center h-screen text-center">
             <Header />
             <Modal isOpen={isOpen} onClose={onClose}>
                 <Cart />

@@ -3,7 +3,7 @@ import CardCategories from './cardCategories';
 
 const Shop = () =>{
    return(
-     <div className='flex flex-wrap text-center justify-center bg-stone-500'>
+     <div className='flex flex-wrap text-center justify-center'>
         {catergories.map(cat => {
          return <CardCategories 
          key={cat.id}

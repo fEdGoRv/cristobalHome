@@ -4,7 +4,7 @@ import Card from './card';
 const Products = ({ products }) => {
 
    return (
-      <div className='flex flex-wrap text-center justify-center bg-stone-500'>
+      <div className='flex flex-wrap text-center justify-center'>
          {products.map(prod => {
             return <Card
                key={prod.id}

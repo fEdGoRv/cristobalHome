@@ -35,7 +35,7 @@ const Card = ({ name, image, description, price, id:prodId }) => {
                 <Button onClick={addItem} type="button">
                    <span className="flex">Add+<img src={cart} alt="carrito"/></span>
                 </Button>
-                <Button onClick={showDetails} classes="cardButton" type="button">
+                <Button onClick={showDetails} classes="detail" type="button">
                     Ver Detalles
                 </Button>
             </div>

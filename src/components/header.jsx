@@ -35,25 +35,25 @@ export default function Header() {
             <nav className="contents mt-24 text-base lg:text-lg">
                 <ul className="mx-auto flex items-center">
                     <li className="p-5 xl:p-8">
-                        <li className={underline === "" ? `${sectionStyle} border-b-2 border-morao` : `${sectionStyle}`} onClick={() => handleClick("")}>
+                        <ul className={underline === "" ? `${sectionStyle} border-b-2 border-morao` : `${sectionStyle}`} onClick={() => handleClick("")}>
                             Home
                             <span className={underlineStyle}></span>
-                        </li>
+                        </ul>
                     </li>
                     <li className="p-5 xl:p-8">
-                        <li className={underline === "about" ? `${sectionStyle} border-b-2 border-morao` : `${sectionStyle}`} onClick={() => handleClick("about")}>
+                        <ul className={underline === "about" ? `${sectionStyle} border-b-2 border-morao` : `${sectionStyle}`} onClick={() => handleClick("about")}>
                             Sobre Nosotros
                             <span className={underlineStyle}></span>
-                        </li>
+                        </ul>
                     </li>
 
                     <DropDownProducts />
 
                     <li className="p-5 xl:p-8">
-                        <li className={underline === "contact" ? `${sectionStyle} border-b-2 border-morao` : `${sectionStyle}`} onClick={() => handleClick("contact")}>
+                        <ul className={underline === "contact" ? `${sectionStyle} border-b-2 border-morao` : `${sectionStyle}`} onClick={() => handleClick("contact")}>
                             Contacto
                             <span className={underlineStyle}></span>
-                        </li>
+                        </ul>
                     </li>
                 </ul>
             </nav>

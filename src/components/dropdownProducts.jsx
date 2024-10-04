@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
@@ -6,22 +6,49 @@ const DropDownProducts = () => {
 
     const navigate = useNavigate();
     const [dropdownOpen, setDropdownOpen] = useState(false);
+    const timerRef = useRef(null);
+
+    const handleMouseEnter = () => {
+        if(timerRef.current){
+            clearTimeout(timerRef.current);
+        }
+        setDropdownOpen(true);
+    }
+
+    const handleMouseLeave = () => {
+        timerRef.current = setTimeout(()=>{
+            setDropdownOpen(false);
+        },500);
+    }
+
+    const handleDropdownMouseEnter = () => {
+        if(timerRef.current){
+            clearTimeout(timerRef.current);
+        }
+    }
+
+    const handleDropdownMouseLeave = () => {
+        setDropdownOpen(false);
+    }
+
     let sectionStyle = "relative font-semibold text-black hover:opacity-50 hover:text-morao group cursor-pointer transition-all duration-400"
     const underlineStyle = "absolute left-1/2 bg-morao bottom-0 w-0 h-[2px] bg-black transition-all duration-800 group-hover:w-full transform -translate-x-1/2"
 
-    return <li className="relativep-5 xl:p-8">
+    return <ul className="relativep-5 xl:p-8">
         <li
             className={sectionStyle}
-            onMouseEnter={() => setDropdownOpen(true)}
-            onMouseLeave={() => setDropdownOpen(false)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
         >
             Productos
             <span className={underlineStyle}></span>
         </li>
-        {dropdownOpen && <ul 
-        onMouseLeave={() => setDropdownOpen(false)} 
-        className={`absolute left-1/2 flex bg-white w-auto mt-2 p-2 shadow-lg z-50 transition-all duration-300 ease-out transform -translate-x-1/2 opacity-100 translate-y-0`}>
-            <div className="p-1 text-left">
+        <li 
+        onMouseEnter={handleDropdownMouseEnter}
+        onMouseLeave={handleDropdownMouseLeave} 
+        className={`absolute left-1/2 flex bg-white w-auto mt-2 p-2 shadow-lg z-50 transition-all duration-400 ease-out transform -translate-x-1/2 
+        ${dropdownOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+            <ul className="p-1 text-left">
                 <div className="relative w-64 align-left">
                     <h2 className="font-semibold py-4 text-morao">
                         Categorias
@@ -65,7 +92,7 @@ const DropDownProducts = () => {
                 }}>
                     Proyectos
                 </li>
-            </div>
+            </ul>
             <div className="p-1 text-left">
                 <div className="relative w-64 ">
                     <h2 className="font-semibold py-4 text-morao">
@@ -91,8 +118,8 @@ const DropDownProducts = () => {
             <div className="w-64">
                 <img src="/pinchos/DSC_2560.jpg" alt="present" />
             </div>
-        </ul>}
-    </li>
+        </li>
+    </ul>
 }
 
 export default DropDownProducts;

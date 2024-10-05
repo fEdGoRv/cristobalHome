@@ -1,13 +1,14 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import './dropdownproducts.css';
 
 const DropDownProducts = () => {
 
     const navigate = useNavigate();
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const timerRef = useRef(null);
-
+    
     const handleMouseEnter = () => {
         if(timerRef.current){
             clearTimeout(timerRef.current);
@@ -31,7 +32,7 @@ const DropDownProducts = () => {
         setDropdownOpen(false);
     }
 
-    let sectionStyle = "relative font-semibold text-black hover:opacity-50 hover:text-morao group cursor-pointer transition-all duration-400"
+    let sectionStyle = "relative font-lora font-semibold text-black hover:opacity-50 hover:text-morao group cursor-pointer transition-all duration-400"
     const underlineStyle = "absolute left-1/2 bg-morao bottom-0 w-0 h-[2px] bg-black transition-all duration-800 group-hover:w-full transform -translate-x-1/2"
 
     return <ul className="relativep-5 xl:p-8">
@@ -43,12 +44,11 @@ const DropDownProducts = () => {
             Productos
             <span className={underlineStyle}></span>
         </li>
-        <li 
+        <div
         onMouseEnter={handleDropdownMouseEnter}
         onMouseLeave={handleDropdownMouseLeave} 
-        className={`absolute left-1/2 flex bg-white w-auto mt-2 p-2 shadow-lg z-50 transition-all duration-400 ease-out transform -translate-x-1/2 
-        ${dropdownOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-            <ul className="p-1 text-left">
+        className={`dropdown absolute left-1/2 flex bg-white w-auto mt-2 p-2 shadow-lg z-50 transition-all transform -translate-x-1/2 duration-400 ease-out translate-x-[40%] ${dropdownOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <ul className="p-1 font-cinzel text-left">
                 <div className="relative w-64 align-left">
                     <h2 className="font-semibold py-4 text-morao">
                         Categorias
@@ -93,7 +93,7 @@ const DropDownProducts = () => {
                     Proyectos
                 </li>
             </ul>
-            <div className="p-1 text-left">
+            <div className="p-1 font-cinzel text-left">
                 <div className="relative w-64 ">
                     <h2 className="font-semibold py-4 text-morao">
                         Tienda
@@ -118,7 +118,7 @@ const DropDownProducts = () => {
             <div className="w-64">
                 <img src="/pinchos/DSC_2560.jpg" alt="present" />
             </div>
-        </li>
+        </div>
     </ul>
 }
 

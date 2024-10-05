@@ -14,9 +14,8 @@ const Cart = () => {
                 Tu carrito
             </h1>
             <ul>{cart.map((item) => {
-                return <li className="justify-center" >
+                return <li className="justify-center" key={item.id}>
                     <CartItem
-                        key={item.id}
                         item={{
                             id: item.id,
                             name: item.name,

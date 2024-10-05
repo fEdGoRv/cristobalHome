@@ -1,22 +1,31 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import Header from "./header";
 import Modal from "./modal";
 import Cart from "./cart";
-import { useDispatch, useSelector } from "react-redux";
 import { modalActions } from "../store/modalSlice";
 import Footer from "./footer";
 
 const Main = () => {
     const dispatch = useDispatch();
     const isOpen = useSelector(state => state.modal.isOpen);
+    const location = useLocation();
+    let path = location.pathname;
 
     const onClose = () => {
-       dispatch(modalActions.closeModalHandler());
+        dispatch(modalActions.closeModalHandler());
+    }
+
+    const getBackgroundStyle = () => {
+        if(path === '/')
+            return "[url('/pinchos/DSC_2871.jpg')]";
+        else
+            return 'white';
     }
 
     return (
-        <div className="bg-[url('/public/pinchos/DSC_2781.jpg')] bg-cover bg-center h-screen text-center">
+        <div className={`bg-${getBackgroundStyle()} bg-cover bg-center h-screen text-center`}>
             <Header />
             <Modal isOpen={isOpen} onClose={onClose}>
                 <Cart />

@@ -1,4 +1,3 @@
-import { Outlet } from 'react-router-dom';
 import Card from './card';
 
 const Products = ({ products }) => {

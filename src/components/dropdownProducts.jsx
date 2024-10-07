@@ -32,7 +32,7 @@ const DropDownProducts = () => {
         setDropdownOpen(false);
     }
 
-    let sectionStyle = "relative font-lora font-semibold text-black hover:opacity-50 hover:text-morao group cursor-pointer transition-all duration-400"
+    let sectionStyle = "relative font-josefin font-semibold text-black hover:opacity-50 hover:text-morao group cursor-pointer transition-all duration-400"
     const underlineStyle = "absolute left-1/2 bg-morao bottom-0 w-0 h-[2px] bg-black transition-all duration-800 group-hover:w-full transform -translate-x-1/2"
 
     return <ul className="relativep-5 xl:p-8">

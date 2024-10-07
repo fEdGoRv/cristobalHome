@@ -18,14 +18,16 @@ const Main = () => {
     }
 
     const getBackgroundStyle = () => {
-        if(path === '/')
-            return "[url('/pinchos/DSC_2871.jpg')]";
-        else
-            return 'white';
+        if(path === '/'){
+            return 'home-taste';
+        }
+        else{
+          return 'white';
+        }
     }
 
     return (
-        <div className={`bg-${getBackgroundStyle()} bg-cover bg-center h-screen text-center`}>
+        <div className={`bg-${getBackgroundStyle()} bg-cover bg-center h-screen text-center`} >
             <Header />
             <Modal isOpen={isOpen} onClose={onClose}>
                 <Cart />

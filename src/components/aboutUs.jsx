@@ -32,7 +32,7 @@ const AboutUs = () => {
             <div className="flex bg-cover h-64 bg-design-detail bg-center grid place-items-center text-center text-white">
                 <div>
                     <h1 className="text-6xl m-8 font-bold font-playfair">DISEÑO Y DECORACION</h1>
-                    <p className="">Christobal Home sinónimo de diseño y decoración.</p>
+                    <p className="font-playfair">Christobal Home sinónimo de diseño y decoración.</p>
                 </div>
             </div>
         </div>

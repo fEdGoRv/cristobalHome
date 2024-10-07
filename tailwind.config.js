@@ -16,7 +16,8 @@ module.exports = {
         josefin: ['Josefin Sans', 'sans-serif'],
         cinzel: ['Cinzel', 'serif'],
         lora: ['Lora', 'serif'],
-        playfair: ['Playfair-display', 'serif']
+        playfair: ['Playfair-display', 'serif'],
+        lobster: ['lobster', 'serif']
       }
     },
   },

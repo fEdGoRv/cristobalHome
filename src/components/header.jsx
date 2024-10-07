@@ -16,7 +16,7 @@ export default function Header() {
     const path = location.pathname;
 
     const underlineStyle = "absolute left-1/2 bg-morao bottom-0 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full transform -translate-x-1/2";
-    let sectionStyle = "relative font-josefin font-semibold text-black hover:opacity-50 hover:text-morao group cursor-pointer transition-all duration-400";
+    let sectionStyle = "relative font-josefin font-bold text-black hover:opacity-50 hover:text-morao group cursor-pointer transition-all duration-400";
 
     const handleClick = (id) => {
         setUnderline(id);
@@ -36,13 +36,13 @@ export default function Header() {
                 <ul className="mx-auto flex items-center">
                     <li className="p-5 xl:p-8">
                         <ul className={underline === "" || path === "/" ? `${sectionStyle} border-b-2 border-morao` : `${sectionStyle}`} onClick={() => handleClick("")}>
-                            Inicio
+                            INICIO
                             {underline !== "" && path !== "/" ? <span className={underlineStyle}></span> : ""}
                         </ul>
                     </li>
                     <li className="p-5 xl:p-8">
                         <ul className={underline === "about" ? `${sectionStyle} border-b-2 border-morao` : `${sectionStyle}`} onClick={() => handleClick("about")}>
-                            Cristobal Home
+                            CRISTOBAL HOME
                             {underline !== "about" && <span className={underlineStyle}></span>}
                         </ul>
                     </li>
@@ -51,7 +51,7 @@ export default function Header() {
 
                     <li className="p-5 xl:p-8">
                         <ul className={underline === "contact" ? `${sectionStyle} border-b-2 border-morao` : `${sectionStyle}`} onClick={() => handleClick("contact")}>
-                            Contacto
+                            CONTACTO
                             {underline !== "contact" &&<span className={underlineStyle}></span>}
                         </ul>
                     </li>

@@ -6,9 +6,9 @@ const Home = () => {
 
     return <div className="realative">
         <div>
-            <h1 className="text-6xl text-morao font-bold font-cinzel">Renová</h1>
-            <h1 className="text-6xl text-morao font-bold font-cinzel">tú</h1>
-            <h1 className="text-6xl font-bold font-lobster">jardin</h1>
+            <h1 className="text-6xl text-morao font-bold font-cinzel">RENOVÁ</h1>
+            <h1 className="text-6xl text-morao font-bold font-cinzel">TU</h1>
+            <h1 className="text-6xl font-bold font-lobster">jardín</h1>
         </div>
         <div className="m-8">
             <Button onClick={() => navigate("shop")}>

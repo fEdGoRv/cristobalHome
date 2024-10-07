@@ -1,14 +1,14 @@
 .dropdown {
-    opacity: 0; 
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    transform: translateY(2rem);
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: translateY(2rem);
 }
-  
-  .dropdown.opacity-100 {
-    opacity: 1; 
-    transform: translateY(0);  
-  }
-  
-  .pointer-events-none {
-    pointer-events: none;
-  }
+
+.dropdown.opacity-100 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pointer-events-none {
+  pointer-events: none;
+}

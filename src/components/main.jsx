@@ -1,6 +1,7 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
+import { HeaderProvider } from "../store/HeaderContext";
 import Header from "./header";
 import Modal from "./modal";
 import Cart from "./cart";
@@ -18,17 +19,19 @@ const Main = () => {
     }
 
     const getBackgroundStyle = () => {
-        if(path === '/'){
-            return 'home-taste';
+        if (path === '/') {
+            return "home-taste";
         }
-        else{
-          return 'white';
+        else {
+            return 'white';
         }
     }
 
     return (
         <div className={`bg-${getBackgroundStyle()} bg-cover bg-center h-screen text-center`} >
-            <Header />
+            <HeaderProvider>
+                <Header />
+            </HeaderProvider>
             <Modal isOpen={isOpen} onClose={onClose}>
                 <Cart />
             </Modal>

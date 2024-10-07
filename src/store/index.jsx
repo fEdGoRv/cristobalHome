@@ -5,7 +5,7 @@ import { modalReducer } from "./modalSlice";
 const store = configureStore({
     reducer: {
         cart: cartSlice.reducer,
-        modal: modalReducer
+        modal: modalReducer,
     }
 });
 

@@ -8,7 +8,8 @@ const DropDownProducts = () => {
     const {
         navigate,
         underlineStyle,
-        sectionStyle
+        sectionStyle,
+        setUnderline
     } = useHeaderContext();
     
     const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -31,6 +32,12 @@ const DropDownProducts = () => {
         if(timerRef.current){
             clearTimeout(timerRef.current);
         }
+    }
+
+    const handleSectionClick = (id) => {
+         navigate(`/categories/${id}`);
+         setDropdownOpen(false);
+         setUnderline(null);
     }
 
     const handleDropdownMouseLeave = () => {
@@ -59,45 +66,27 @@ const DropDownProducts = () => {
                 </div>
 
                 <li className="m-2 cursor-pointer text-black hover:text-morao" 
-                onClick={() => {
-                    navigate("/categories/chapas");
-                    setDropdownOpen(false);
-                }}>
+                onClick={() => handleSectionClick("chapas")}>
                     Chapas
                 </li>
                 <li className="m-2 cursor-pointer text-black hover:text-morao" 
-                onClick={() => {
-                    navigate("/categories/accesorios");
-                    setDropdownOpen(false);
-                }}>
+                onClick={() => handleSectionClick("accesorios")}>
                     Accesorios
                 </li>
                 <li className="m-2 cursor-pointer text-black hover:text-morao" 
-                onClick={() => {
-                    navigate("/categories/pinchos");
-                    setDropdownOpen(false);
-                }}>
+                onClick={() => handleSectionClick("pinchos")}>
                     Pinchos
                 </li>
                 <li className="m-2 cursor-pointer text-black hover:text-morao" 
-                onClick={() => {
-                    navigate("/categories/exteriores");
-                    setDropdownOpen(false);
-                }}>
+                onClick={() => handleSectionClick("exteriores")}>
                     Exteriores
                 </li>
                 <li className="m-2 cursor-pointer text-black hover:text-morao" 
-                onClick={() => {
-                    navigate("/categories/fogones");
-                    setDropdownOpen(false);
-                }}>
+                onClick={() => handleSectionClick("fogones")}>
                     Fogones
                 </li>
                 <li className="m-2 cursor-pointer text-black hover:text-morao" 
-                onClick={() => {
-                    navigate("/categories/proyectos");
-                    setDropdownOpen(false);
-                }}>
+                onClick={() => handleSectionClick("proyectos")}>
                     Proyectos
                 </li>
             </ul>

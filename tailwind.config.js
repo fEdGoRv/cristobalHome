@@ -10,7 +10,8 @@ module.exports = {
       },
       colors: {
         morao: '#b65964',
-        fucia: '#fc0fc0'
+        fucia: '#fc0fc0',
+        grisCard: '#666666'
       },
       fontFamily: {
         josefin: ['Josefin Sans', 'sans-serif'],

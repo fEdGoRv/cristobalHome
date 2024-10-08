@@ -38,10 +38,10 @@ export default function Header() {
                     </li>
                     <li className="p-5 xl:p-8">
                         <ul
-                            className={underline === "about" ? `${sectionStyle} border-b-2 border-morao` : `${sectionStyle}`}
+                            className={underline === "about" || path === "/about" ? `${sectionStyle} border-b-2 border-morao` : `${sectionStyle}`}
                             onClick={() => handlePrincipalPagesClick('about')}>
                             CRISTOBAL HOME
-                            {underline !== "about" && <span className={underlineStyle}></span>}
+                            {underline !== "about" && <span className={underlineStyle}></span> }
                         </ul>
                     </li>
 
@@ -49,7 +49,7 @@ export default function Header() {
 
                     <li className="p-5 xl:p-8">
                         <ul
-                            className={underline === "contact" ? `${sectionStyle} border-b-2 border-morao` : `${sectionStyle}`}
+                            className={underline === "contact" || path === "/contact" ? `${sectionStyle} border-b-2 border-morao` : `${sectionStyle}`}
                             onClick={() => handlePrincipalPagesClick('contact')}>
                             CONTACTO
                             {underline !== "contact" && <span className={underlineStyle}></span>}

@@ -25,6 +25,7 @@ export const HeaderProvider = ({ children }) => {
 
     const headerCtxValue = {
         underline,
+        setUnderline,
         navigate,
         dispatch,
         path,

@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Button from "./button";
 import './home.css'
 import { useEffect } from "react";
+import HomeCardDisplayer from "./homeCardDisplayer";
 
 const Home = () => {
     const navigate = useNavigate();
@@ -9,50 +10,57 @@ const Home = () => {
     const path = location.pathname;
 
     useEffect(() => {
-        if (path === '/') {
-            const moraElement = document.querySelector('.mora');
-            const manuscritaElement = document.querySelector('.manuscrita');
-            const tendenciasElement = document.querySelector('.tendencias');
 
-            if (path === "/" && moraElement && manuscritaElement && tendenciasElement) {
-                window.addEventListener("load", () => {
-                    moraElement.classList.add('active');
-                    manuscritaElement.classList.add('active');
-                    tendenciasElement.classList.add('active');
-                });
+        const moraOneElement = document.querySelector('.mora-one');
+        const moraTwoElement = document.querySelector('.mora-two');
+        const manuscritaElement = document.querySelector('.manuscrita');
+        const tendenciasElement = document.querySelector('.tendencias');
+
+        if (path === "/" && moraOneElement && moraTwoElement && manuscritaElement && tendenciasElement) {
+            moraOneElement.classList.add('active');
+            moraTwoElement.classList.add('active');
+            manuscritaElement.classList.add('active');
+            tendenciasElement.classList.add('active');
+        }else{
+        return () => {
+           
+                moraOneElement.classList.remove('active');
+                moraTwoElement.classList.remove('active');
+                manuscritaElement.classList.remove('active');
+                tendenciasElement.classList.remove('active');
             }
-            return () => {
-                if (moraElement && manuscritaElement && tendenciasElement) {
-                    moraElement.classList.remove('active');
-                    manuscritaElement.classList.remove('active');
-                    tendenciasElement.classList.remove('active');
-                }
-            };
-        }
+        };
+
     }, [path]);
 
 
-    return <div className="realative h-screen w-full">
-        <div>
-            <h1 className="mora absolute top-64 start-96 text-8xl text-morao font-bold font-josefin">
-                RENOVÁ
-            </h1>
-            <h1 className="mora absolute top-48 left-48 text-stone-800 text-8xl font-bold font-josefin">
-                TU
-            </h1>
-            <h1 className="manuscrita absolute inset-x-2/3 bottom-96 text-stone-800 text-8xl font-bold font-lobster">
-                jardín
-            </h1>
+    return <>
+        <div className="realative h-screen w-full">
+            <div>
+                <h1 className="mora-one absolute top-52 inset-x-2/3 text-8xl text-morao font-bold font-josefin">
+                    RENOVÁ
+                </h1>
+                <h1 className="mora-two absolute top-72 inset-x-3/4 text-stone-800 text-7xl font-bold font-josefin">
+                    TU
+                </h1>
+                <h1 className="manuscrita absolute inset-x-2/3 inset-y-1/3 text-stone-800 text-8xl font-bold font-lobster">
+                    jardín
+                </h1>
+            </div>
+            <div className="tendencias absolute left-40 inset-y-2/3 m-8">
+                <h1 className="text-6xl text-morao font-josefin font-bold ">
+                    Tendencias
+                </h1>
+                <Button classes="detail" onClick={() => navigate("shop")}>
+                    Ir a la tienda
+                </Button>
+            </div>
         </div>
-        <div className=" absolute inset-y-2/3 inset-x-1/3 tendencias m-8">
-            <h1 className="text-4xl text-morao font-josefin font-semibold ">
-                Tendencias
-            </h1>
-            <Button classes="detail" onClick={() => navigate("shop")}>
-                Ir a la tienda
-            </Button>
+        <div className="justify-center">
+            <HomeCardDisplayer />
         </div>
-    </div>
+    </>
+
 }
 
 export default Home;

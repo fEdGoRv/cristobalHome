@@ -18,17 +18,17 @@ const Main = () => {
         dispatch(modalActions.closeModalHandler());
     }
 
-    const getBackgroundStyle = () => {
-        if (path === '/') {
-            return "home-taste";
-        }
-        else {
-            return 'white';
-        }
-    }
+    // const getBackgroundStyle = () => {
+    //     if (path === '/') {
+    //         return "home-taste";
+    //     }
+    //     else {
+    //         return 'white';
+    //     }
+    // }
 
     return (
-        <div className={`bg-${getBackgroundStyle()} bg-cover bg-center h-screen text-center`} >
+        <div className={`bg-${path === "/" ? "home-taste" : "white"} bg-cover bg-center h-screen text-center`} >
             <HeaderProvider>
                 <Header />
             </HeaderProvider>

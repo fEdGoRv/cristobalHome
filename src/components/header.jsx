@@ -21,6 +21,7 @@ export default function Header() {
         dispatch(modalActions.openModalHandler());
     }
 
+
     return <header className="text-white font-inherit hidden md:block">
         <div className="container mx-auto flex items-center h-24">
             <a href="shop" className="flex items-center justify-center">
@@ -41,7 +42,7 @@ export default function Header() {
                             className={underline === "about" || path === "/about" ? `${sectionStyle} border-b-2 border-morao` : `${sectionStyle}`}
                             onClick={() => handlePrincipalPagesClick('about')}>
                             CRISTOBAL HOME
-                            {underline !== "about" && <span className={underlineStyle}></span> }
+                            {underline !== "about" && path !== "/about" ? <span className={underlineStyle}></span> : ""}
                         </ul>
                     </li>
 
@@ -52,7 +53,7 @@ export default function Header() {
                             className={underline === "contact" || path === "/contact" ? `${sectionStyle} border-b-2 border-morao` : `${sectionStyle}`}
                             onClick={() => handlePrincipalPagesClick('contact')}>
                             CONTACTO
-                            {underline !== "contact" && <span className={underlineStyle}></span>}
+                            {underline !== "contact" && path !== "/contact" ? <span className={underlineStyle}></span> : ""}
                         </ul>
                     </li>
                 </ul>

@@ -1,25 +1,34 @@
-.mora, .manuscrita{
+.mora-one, .mora-two, .manuscrita {
     opacity: 0;
     transform: translateX(10rem);
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
-
 .manuscrita{
     transform: translateX(-10rem);
 }
 
-.mora.active, .manuscrita.active{
-   opacity: 1;
-   transform: translateX(0);
-}
-
-.tendencias{
+.tendencias {
     opacity: 0;
     transform: translateY(10rem);
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.tendencias.active{
+.mora-one.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.mora-two.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.manuscrita.active {
+    opacity: 1;
+    transform: translateX(0); 
+}
+
+.tendencias.active {
     opacity: 1;
     transform: translateY(0);
 }

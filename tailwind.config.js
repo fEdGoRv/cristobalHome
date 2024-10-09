@@ -4,14 +4,14 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "home-taste": "url('/public/pinchos/DSC_2781.jpg')",
+        "home-taste": "url('/public/pinchos/DSC_2923.jpg')",
         "title-about": "url('/public/pinchos/DSC_2916.jpg')",
         "design-detail": "url('/public/pinchos/DSC_2864.jpg')",
       },
       colors: {
         morao: '#b65964',
         fucia: '#fc0fc0',
-        grisCard: '#666666'
+        grisCard: '#f5f5f1'
       },
       fontFamily: {
         josefin: ['Josefin Sans', 'sans-serif'],

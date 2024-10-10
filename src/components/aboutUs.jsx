@@ -20,8 +20,9 @@ const AboutUs = () => {
                             Nuestro comienzo
                         </h2>
                         <p className="font-lora font-semibold p-4 opacity-50">
-                            Cristobal Home empezó como un emprendimiento. Una iniciativa de dos amigos en la ciudad de Azul, para generar ingresos extra, como una segunda actividad. El diseño siempre presente y el querer crear una marca que se distinga por su invacion y adaptabilidad.
-                            Así fue que esta empresa que empezó como un hobby, hoy por suerte se multiplica en creatividad y ventas.
+                            Cristobal Home empezó como un emprendimiento de dos amigos en la ciudad de Azul.
+                            El querer crear una marca que se distinga por su invacion y adaptabilidad nos llevo,
+                            de algo que empezó como un hobby, a que hoy por suerte se multiplique en creatividad y ventas.
                         </p>
                     </div>
                 </div>

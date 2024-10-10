@@ -9,6 +9,7 @@ const Home = () => {
     const location = useLocation();
     const path = location.pathname;
 
+
     useEffect(() => {
 
         const moraOneElement = document.querySelector('.mora-one');
@@ -16,24 +17,37 @@ const Home = () => {
         const manuscritaElement = document.querySelector('.manuscrita');
         const tendenciasElement = document.querySelector('.tendencias');
 
-        if (path === "/" && moraOneElement && moraTwoElement && manuscritaElement && tendenciasElement) {
+        const addActiveClass = () => {
+            console.log("aaaaaagregando")
             moraOneElement.classList.add('active');
             moraTwoElement.classList.add('active');
             manuscritaElement.classList.add('active');
             tendenciasElement.classList.add('active');
-        }else{
-        return () => {
-           
-                moraOneElement.classList.remove('active');
-                moraTwoElement.classList.remove('active');
-                manuscritaElement.classList.remove('active');
-                tendenciasElement.classList.remove('active');
-            }
-        };
+        }
+
+        if (path === "/")
+            addActiveClass();
 
     }, [path]);
 
+    useEffect(() => {
 
+        const moraOneElement = document.querySelector('.mora-one');
+        const moraTwoElement = document.querySelector('.mora-two');
+        const manuscritaElement = document.querySelector('.manuscrita');
+        const tendenciasElement = document.querySelector('.tendencias');
+
+        const removeActiveClass = () => {
+            console.log("borrandoooooooooooo")
+            moraOneElement.classList.remove('active');
+            moraTwoElement.classList.remove('active');
+            manuscritaElement.classList.remove('active');
+            tendenciasElement.classList.remove('active');
+        }
+        if(path !== "/")
+        return () => { removeActiveClass() }
+    }, [path])
+    
     return <>
         <div className="realative h-screen w-full">
             <div>

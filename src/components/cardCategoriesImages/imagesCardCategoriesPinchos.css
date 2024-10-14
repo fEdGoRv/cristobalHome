@@ -1,0 +1,25 @@
+.image-container {
+    background-size: cover;
+    position: relative;
+    width: 300px;
+    height: 200px;
+}
+
+.decription {
+    position: absolute;
+    color: white;
+    bottom: 10px;
+    left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.categorie {
+    position: absolute;
+    color: "morao";
+    bottom: 40px;
+    left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+
+}

@@ -28,7 +28,7 @@ const Home = () => {
         if (path === "/")
             addActiveClass();
 
-    }, [path]);
+    }, []);
 
     useEffect(() => {
 
@@ -44,9 +44,11 @@ const Home = () => {
             manuscritaElement.classList.remove('active');
             tendenciasElement.classList.remove('active');
         }
-        if(path !== "/")
+
+        if(path === "/")
         return () => { removeActiveClass() }
-    }, [path])
+
+    }, [])
     
     return <>
         <div className="realative h-screen w-full">
@@ -61,8 +63,8 @@ const Home = () => {
                     jardín
                 </h1>
             </div>
-            <div className="tendencias absolute left-40 inset-y-2/3 m-8">
-                <h1 className="text-6xl text-morao font-josefin font-bold ">
+            <div className="tendencias absolute left-32 inset-y-3/4 m-8">
+                <h1 className="text-6xl text-morao font-josefin font-bold border-b-4 border-stone-800 ">
                     Tendencias
                 </h1>
                 <Button classes="detail" onClick={() => navigate("shop")}>
@@ -70,7 +72,7 @@ const Home = () => {
                 </Button>
             </div>
         </div>
-        <div className="justify-center">
+        <div className="grid place-items-center">
             <HomeCardDisplayer />
         </div>
     </>

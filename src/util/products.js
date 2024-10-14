@@ -110,8 +110,8 @@ export const catergories = [
         image: 'DSC_2861.jpg'
     },
     {
-        id: 'proyectos',
-        name: 'Proyectos',
+        id: 'iluminación',
+        name: 'Iluminación',
         image: 'DSC_2861.jpg'
     }
 ]

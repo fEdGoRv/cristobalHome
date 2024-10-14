@@ -1,19 +1,7 @@
-import {catergories} from '../util/products';
-import CardCategories from './cardCategories';
+import HomeCardDisplayer from './homeCardDisplayer';
 
 const Shop = () =>{
-   return(
-     <div className='flex flex-wrap text-center justify-center'>
-        {catergories.map(cat => {
-         return <CardCategories 
-         key={cat.id}
-         id={cat.id}
-         name={cat.name}
-         image={cat.image}
-         />
-        })}
-     </div>
-   );
+   return <HomeCardDisplayer />
 }
 
 export default Shop;

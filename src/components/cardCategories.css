@@ -1,0 +1,14 @@
+.action {
+    opacity: 0;
+    transform: translateY(3rem);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.action.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pointer-events-none {
+    pointer-events: none;
+  }

@@ -28,7 +28,7 @@ const Home = () => {
         if (path === "/")
             addActiveClass();
 
-    }, []);
+    }, [path]);
 
     useEffect(() => {
 
@@ -48,7 +48,7 @@ const Home = () => {
         if(path === "/")
         return () => { removeActiveClass() }
 
-    }, [])
+    }, [path])
     
     return <>
         <div className="realative h-screen w-full">
@@ -72,7 +72,7 @@ const Home = () => {
                 </Button>
             </div>
         </div>
-        <div className="grid place-items-center">
+        <div className="grid place-items-center mt-64">
             <HomeCardDisplayer />
         </div>
     </>

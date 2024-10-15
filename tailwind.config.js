@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "home-taste": "url('/public/pinchos/DSC_2923.jpg')",
+        "home-background": "url('/public/pinchos/DSC_2923.jpg')",
         "title-about": "url('/public/pinchos/DSC_2916.jpg')",
         "design-detail": "url('/public/pinchos/DSC_2864.jpg')",
       },

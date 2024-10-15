@@ -24,9 +24,9 @@ export default function Header() {
 
     return <header className="text-white font-inherit hidden md:block">
         <div className="container mx-auto flex items-center h-24">
-            <a href="shop" className="flex items-center justify-center">
-                <img className="h-16" src="/pinchos/cristobal logo.jpg" alt="" />
-            </a>
+            
+                <img className="h-16 rounded-full m-0" src="/pinchos/cristobal logo.jpg" alt="" />
+            
             <nav className="contents mt-24 text-base lg:text-lg">
                 <ul className="mx-auto flex items-center">
                     <li className="p-5 xl:p-8">

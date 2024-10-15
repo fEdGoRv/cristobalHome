@@ -87,7 +87,7 @@ const DropDownProducts = () => {
                 </li>
                 <li className="m-2 cursor-pointer text-black hover:text-morao" 
                 onClick={() => handleSectionClick("proyectos")}>
-                    Proyectos
+                    Iluminación
                 </li>
             </ul>
             <div className="p-1 font-cinzel text-left">

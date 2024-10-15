@@ -28,7 +28,9 @@ const Main = () => {
     // }
 
     return (
-        <div className={`bg-${path === "/" ? "home-taste" : "white"} bg-cover bg-center h-screen text-center`} >
+        <div 
+        style={{"--home-taste": "url('/pinchos/DSC_2923.jpg')"}}
+        className={`bg-${path === "/" ? "title-about" : "white"} bg-cover bg-center h-screen text-center`} >
             <HeaderProvider>
                 <Header />
             </HeaderProvider>

@@ -1,7 +1,7 @@
-import HomeCardDisplayer from './homeCardDisplayer';
+import HomeCardDisplayer from "./homeCardDisplayer";
 
-const Shop = () =>{
-   return <HomeCardDisplayer />
-}
+const Shop = () => {
+  return <HomeCardDisplayer />;
+};
 
 export default Shop;

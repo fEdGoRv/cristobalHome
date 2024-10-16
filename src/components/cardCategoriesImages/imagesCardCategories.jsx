@@ -1,6 +1,5 @@
 const ImagesCardCategories = ({ catId, image }) => {
   let dStyl = {};
-  let urlImg = `/pinchos/${image}`;
 
   switch (catId) {
     default:
@@ -12,7 +11,6 @@ const ImagesCardCategories = ({ catId, image }) => {
         dFontSize: "xl",
         name: "Pinchos",
         description: "ANIMALES - FRASES",
-        img: `[url('${urlImg}')]`,
       };
       break;
     case "fogones":
@@ -23,10 +21,9 @@ const ImagesCardCategories = ({ catId, image }) => {
         dFontSize: "",
         name: "Fogones",
         description: "",
-        img: `[url('${urlImg}')]`,
       };
       break;
-    case "exteriores":
+    case "moviliario":
       dStyl = {
         posName: "top-2",
         posDesc: "top-12",
@@ -35,7 +32,6 @@ const ImagesCardCategories = ({ catId, image }) => {
         dFontSize: "xl",
         name: "Moviliario",
         description: "MESAS · SILLAS",
-        img: `[url('${urlImg}')]`,
       };
       break;
     case "chapas":
@@ -47,7 +43,6 @@ const ImagesCardCategories = ({ catId, image }) => {
         dFontSize: "xl",
         name: "Carteles",
         description: "FRASES · MOTIVOS",
-        img: `[url('${urlImg}')]`,
       };
       break;
     case "accesorios":
@@ -59,7 +54,6 @@ const ImagesCardCategories = ({ catId, image }) => {
         dFontSize: "xl",
         name: "Pequeños detalles",
         description: "ACCSESORIOS",
-        img: `[url('${urlImg}')]`,
       };
       break;
     case "iluminación":
@@ -71,14 +65,13 @@ const ImagesCardCategories = ({ catId, image }) => {
         dFontSize: "xl",
         name: "Iluminación",
         description: "FAROLES · LAMPARAS",
-        img: `[url('${urlImg}')]`,
       };
       break;
   }
 
   return (
     <div
-      className={`relative w-64 m-4 h-${dStyl.h} bg-cover bg-center bg-${dStyl.img}`}
+      className={`relative w-64 m-4 h-${dStyl.h} bg-cover bg-center bg-url('/pinchos/${image}')`}
     >
       <p
         className={`absolute m-2 text-stone-800 ${dStyl.posName} text-${dStyl.nFontSize} font-lobster ${dStyl.description !== "" && "border-b-2 border-stone-800"} `}

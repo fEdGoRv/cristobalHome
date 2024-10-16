@@ -91,31 +91,37 @@ export const catergories = [
   {
     id: "pinchos",
     name: "Pinchos",
+    desc: "ANIMALES · FRASES",
     image: "DSC_2835.jpg",
   },
   {
     id: "fogones",
     name: "Fogones",
-    image: "",
+    desc: "",
+    image: "DSC_2560.jpg",
   },
   {
-    id: "exteriores",
-    name: "Exteriores",
+    id: "moviliario",
+    name: "Moviliario",
+    desc: "MESAS · SILLAS",
     image: "DSC_2923.jpg",
   },
   {
     id: "chapas",
     name: "Chapas",
+    desc: "ANIMALES · FRASES",
     image: "DSC_2529.jpg",
   },
   {
     id: "accesorios",
     name: "Accesorios",
+    desc: "PEQUEÑOS DETALLES",
     image: "DSC_2861.jpg",
   },
   {
     id: "iluminación",
     name: "Iluminación",
-    image: "DSC_2861.jpg",
+    desc: "FAROLES · LAMPARAS",
+    image: "DSC_2895.jpg",
   },
 ];

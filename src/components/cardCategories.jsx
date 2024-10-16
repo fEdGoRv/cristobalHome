@@ -7,7 +7,7 @@ import "./cardCategories.css";
 import ImagesCardCategories from "./cardCategoriesImages/imagesCardCategories";
 import { cardCategoriesActions } from "../store/cardCategoriesSlice";
 
-const CardCategories = ({ name, image, id: catId }) => {
+const CardCategories = ({ name, image, id: catId, desc }) => {
   const navigate = useNavigate();
   const navigateHandler = () => {
     navigate(`../categories/${catId}`);
@@ -26,9 +26,9 @@ const CardCategories = ({ name, image, id: catId }) => {
           onMouseLeave={() => setActive(false)}
           className={`action ${active ? "active" : ""} h=52 max-w-md m-4 bg-grisCard justify-center font-playfair font-semibold shadow-md`}
         >
-          <div className="mb-4 border-b-4 border-morao text-center">
-            <p className="text-2xl font-lora mb-4 ">{name}</p>
-          </div>
+          <p className="font-none">{desc}</p>
+          <p className="text-2xl font-lora mb-4 ">{name}</p>
+          <div className="mb-4 m-auto border-b-2 w-16 border-morao text-center"></div>
           <Button onClick={navigateHandler} classes="cardButton">
             Ver Mas
           </Button>

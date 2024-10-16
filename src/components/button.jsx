@@ -1,7 +1,6 @@
 export default function Button({ children, classes, ...props }) {
   const cardButton =
-    "m-1 rounded-md bg-stone-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none";
-
+    "m-1 rounded-md bg-stone-800 py-2 px-4 border border-transparent text-center text-sm text-white shadow-md transform transition-all duration-700 hover:bg-morao";
   const defButton =
     "bg-morao hover:bg-stone-800 text-white text-xl p-2 m-1 rounded shadow-lg";
 

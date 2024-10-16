@@ -6,7 +6,12 @@ const HomeCardDisplayer = () => {
     <div className="grid grid-cols-3 grid-rows-3 h-screen center">
       {catergories.map((cat) => (
         <div key={cat.id}>
-          <CardCategories id={cat.id} name={cat.name} image={cat.image} />
+          <CardCategories
+            id={cat.id}
+            name={cat.name}
+            image={cat.image}
+            desc={cat.desc}
+          />
         </div>
       ))}
     </div>

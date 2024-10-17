@@ -2,10 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const cardCategoriesSlice = createSlice({
   name: "cardCategories",
-  initialState: "",
+  initialState: {animation: "", active: false},
   reducers: {
     handleAnimation(state, action) {
-      return action.payload !== undefined ? action.payload : state;
+      action.payload !== undefined ? state.animation = action.payload : state.animation;
+    },
+    handleActive(state, action) {
+      action.payload !== undefined ? state.active = action.payload : state.active;
     },
   },
 });

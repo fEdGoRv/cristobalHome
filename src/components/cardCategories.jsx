@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
 
 import Button from "./button";
 import "./cardCategories.css";
@@ -12,26 +11,30 @@ const CardCategories = ({ name, image, id: catId, desc }) => {
   const navigateHandler = () => {
     navigate(`../categories/${catId}`);
   };
-  const [active, setActive] = useState(false);
+  
   const dispatch = useDispatch();
-  const animation = useSelector((state) => state.cardCategories);
+  const animation = useSelector((state) => state.cardCategories.animation);
+  const active = useSelector((state) => state.cardCategories.active);
   return (
     <div
       onMouseOver={() => dispatch(cardCategoriesActions.handleAnimation(catId))}
       onMouseLeave={() => dispatch(cardCategoriesActions.handleAnimation(""))}
+      className="h-full w-full"
     >
       {animation === catId ? (
         <div
-          onMouseEnter={() => setActive(true)}
-          onMouseLeave={() => setActive(false)}
-          className={`action ${active ? "active" : ""} h=52 max-w-md m-4 bg-grisCard justify-center font-playfair font-semibold shadow-md`}
+          onMouseEnter={() => dispatch(cardCategoriesActions.handleActive(true))}
+          onMouseLeave={() => dispatch(cardCategoriesActions.handleActive(false))}
+          className="max-w-md m-4 bg-grisCard justify-center font-playfair shadow-md"
         >
-          <p className="font-none">{desc}</p>
-          <p className="text-2xl font-lora mb-4 ">{name}</p>
-          <div className="mb-4 m-auto border-b-2 w-16 border-morao text-center"></div>
-          <Button onClick={navigateHandler} classes="cardButton">
-            Ver Mas
-          </Button>
+          <div>
+            <p className={`action ${active ? "active" : ""} m-4`}>{desc}</p>
+            <p className={`action ${active ? "active" : ""} text-2xl font-semibold font-lora mb-4 `}>{name}</p>
+            <div className={`action ${active ? "active" : ""} mb-4 m-auto border-b-2 w-16 border-morao text-center`}></div>
+            <Button onClick={navigateHandler} classes="cardCatButton">
+              Ver Mas
+            </Button>
+          </div>
         </div>
       ) : (
         <ImagesCardCategories catId={catId} image={image} />

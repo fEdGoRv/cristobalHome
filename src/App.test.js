@@ -1,12 +1,9 @@
-import { Provider } from "react-redux";
-import { render, screen } from "@testing-library/react";
-import App from "./App";
-import store from "./store/index";
+import { Provider } from 'react-redux';
+import { render, screen } from '@testing-library/react';
+import App from './App';
+import store from './store/index';
 
-
-
-
-test("renders learn react link", () => {
+test('renders learn react link', () => {
   render(
     <Provider store={store}>
       <App />
@@ -14,9 +11,9 @@ test("renders learn react link", () => {
   );
   // const linkElement = screen.getByText(/learn react/i);
   // expect(linkElement).toBeInTheDocument();
-  const linkElement = screen.getByText((content, element) => 
+  const linkElement = screen.getByText(content =>
     content.startsWith('learn react')
   );
+  expect(linkElement).toBeInTheDocument();
   screen.debug();
-
 });

@@ -19,7 +19,6 @@ const CardCategories = ({ name, image, id: catId, desc }) => {
     <div
       onMouseOver={() => dispatch(cardCategoriesActions.handleAnimation(catId))}
       onMouseLeave={() => dispatch(cardCategoriesActions.handleAnimation(""))}
-      className="h-full w-full"
     >
       {animation === catId ? (
         <div

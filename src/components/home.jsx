@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import Button from "./button";
 import "./home.css";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import HomeCardDisplayer from "./homeCardDisplayer";
 
 const Home = () => {
@@ -9,7 +9,7 @@ const Home = () => {
   const location = useLocation();
   const path = location.pathname;
 
-  useEffect(() => {
+  const handleAnimationRender = useCallback(()=>{
     const moraOneElement = document.querySelector(".mora-one");
     const moraTwoElement = document.querySelector(".mora-two");
     const manuscritaElement = document.querySelector(".manuscrita");
@@ -17,35 +17,22 @@ const Home = () => {
 
     const addActiveClass = () => {
       console.log("aaaaaagregando");
-      moraOneElement.classList.add("active");
-      moraTwoElement.classList.add("active");
-      manuscritaElement.classList.add("active");
-      tendenciasElement.classList.add("active");
+      moraOneElement?.classList.add("active");
+      moraTwoElement?.classList.add("active");
+      manuscritaElement?.classList.add("active");
+      tendenciasElement?.classList.add("active");
     };
 
-    if (path === "/") addActiveClass();
-  }, [path]);
+      addActiveClass();
+  },[path])
 
   useEffect(() => {
-    const moraOneElement = document.querySelector(".mora-one");
-    const moraTwoElement = document.querySelector(".mora-two");
-    const manuscritaElement = document.querySelector(".manuscrita");
-    const tendenciasElement = document.querySelector(".tendencias");
+    if (path === "/") {
+      handleAnimationRender();
+    }
+  }, [handleAnimationRender, path]);
 
-    const removeActiveClass = () => {
-      console.log("borrandoooooooooooo");
-      moraOneElement.classList.remove("active");
-      moraTwoElement.classList.remove("active");
-      manuscritaElement.classList.remove("active");
-      tendenciasElement.classList.remove("active");
-    };
-
-    if (path === "/")
-      return () => {
-        removeActiveClass();
-      };
-  }, [path]);
-
+  
   return (
     <>
       <div className="realative h-screen w-full">

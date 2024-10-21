@@ -62,9 +62,9 @@ const DropDownProducts = () => {
 
           <li
             className="m-2 cursor-pointer text-black hover:text-morao"
-            onClick={() => handleSectionClick("chapas")}
+            onClick={() => handleSectionClick("carteles")}
           >
-            Chapas
+            Carteles
           </li>
           <li
             className="m-2 cursor-pointer text-black hover:text-morao"
@@ -80,9 +80,9 @@ const DropDownProducts = () => {
           </li>
           <li
             className="m-2 cursor-pointer text-black hover:text-morao"
-            onClick={() => handleSectionClick("exteriores")}
+            onClick={() => handleSectionClick("moviliario")}
           >
-            Exteriores
+            Moviliario
           </li>
           <li
             className="m-2 cursor-pointer text-black hover:text-morao"
@@ -92,7 +92,7 @@ const DropDownProducts = () => {
           </li>
           <li
             className="m-2 cursor-pointer text-black hover:text-morao"
-            onClick={() => handleSectionClick("proyectos")}
+            onClick={() => handleSectionClick("iluminación")}
           >
             Iluminación
           </li>

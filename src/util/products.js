@@ -49,7 +49,7 @@ export const products = {
       description: 'Fogon de chapa plegada.',
     },
   ],
-  exteriores: [
+  iluminación: [
     {
       id: 'e1',
       name: 'Porta Maceta',
@@ -58,7 +58,7 @@ export const products = {
       description: 'Porta maceta chapa calada.',
     },
   ],
-  chapas: [
+  carteles: [
     {
       id: 'c1',
       name: 'Pequeñas cosas',
@@ -76,7 +76,7 @@ export const products = {
       description: 'Porta servilletas para rollo con motivo de mariposa.',
     },
   ],
-  proyectos: [
+  moviliario: [
     {
       id: 'pp1',
       name: 'Proyecto prueba',

@@ -16,7 +16,6 @@ const Home = () => {
     const tendenciasElement = document.querySelector(".tendencias");
 
     const addActiveClass = () => {
-      console.log("aaaaaagregando");
       moraOneElement?.classList.add("active");
       moraTwoElement?.classList.add("active");
       manuscritaElement?.classList.add("active");

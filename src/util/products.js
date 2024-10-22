@@ -93,7 +93,7 @@ export const catergories = [
     name: 'Pinchos',
     desc: 'ANIMALES · FRASES',
     rowSpan: '2',
-    image: 'DSC_2835.jpg',
+    image: 'DSC_2478.jpg',
   },
   {
     id: 'fogones',

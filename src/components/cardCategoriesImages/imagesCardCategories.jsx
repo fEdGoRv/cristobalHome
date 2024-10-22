@@ -65,7 +65,8 @@ const ImagesCardCategories = ({ catId, image }) => {
 
   return (
     <div
-      className={`relative m-4 w-64 min-h-48 bg-cover bg-center bg-url('/public/pinchos/${image}')`}
+      className="relative m-4 w-64 min-h-48 bg-cover bg-center"
+      style={{backgroundImage: `url(/pinchos/${image})`}}
     >
       <p
         className={`absolute m-2 text-stone-800 ${dStyl.posName} text-${dStyl.nFontSize} font-lobster ${dStyl.description !== "" && "border-b-2 border-stone-800"} `}

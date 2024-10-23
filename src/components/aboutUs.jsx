@@ -1,6 +1,6 @@
 const AboutUs = () => {
   return (
-    <div className="mt-8">
+    <div className="mt-24">
       <div className="flex justify-center items-center h-44 w-full text-white text-6xl font-playfair font-bold bg-cover bg-center bg-title-about">
         <h1>Christobal Home</h1>
       </div>

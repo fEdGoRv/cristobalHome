@@ -55,7 +55,7 @@ const Home = () => {
           </Button>
         </div>
       </div>
-      <div className="grid place-items-center mt-12">
+      <div className="grid place-items-center">
         <HomeCardDisplayer />
       </div>
       <div className="h-96 bg-[url('/public/pinchos/DSC_2862.jpg')] text-white bg-cover bg-center grid place-items-center">

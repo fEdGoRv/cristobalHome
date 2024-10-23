@@ -121,13 +121,13 @@ export const catergories = [
     name: 'Accesorios',
     desc: 'PEQUEÑOS DETALLES',
     rowSpan: '2',
-    image: 'DSC_2861.jpg',
+    image: 'DSC_2875.jpg',
   },
   {
     id: 'iluminación',
     name: 'Iluminación',
     desc: 'FAROLES · LAMPARAS',
     rowSpan: '1',
-    image: 'DSC_2895.jpg',
+    image: 'DSC_2560.jpg',
   },
 ];

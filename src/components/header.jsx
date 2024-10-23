@@ -20,7 +20,7 @@ export default function Header() {
   };
 
   return (
-    <header className="text-white font-inherit hidden md:block">
+    <header className={`fixed left-0 top-0 w-full z-50 text-white font-inherit hidden md:block ${path !== "/" ? "bg-white" : ""}`}>
       <div className="container mx-auto flex items-center h-24">
         <img
           className="h-16 rounded-full m-0"

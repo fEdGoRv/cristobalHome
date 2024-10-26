@@ -1,3 +1,24 @@
+import CardAbout from "./cardAbout";
+
+const cardData = [
+  {
+    title: "HOGAR",
+    description: "Ofrecemos artículos con diseños exclusivos para decorar tu hogar y hacer único cada ambiente de tu casa.",
+    image: "DSC_2861.jpg"
+  },
+  {
+    title: "AIRE LIBRE",
+    description: "Tenemos productos con estilo para ambientar tu jardín. Objetos decorativos de diseño propio en chapa, madera y tela.",
+    image: "DSC_2848.jpg"
+  },
+  {
+    title: "ACCESORIOS",
+    description: "Los mejores accesorios para cada pequeño detalle de tu hogar o tu jardín. Decora tu casa como siempre quisiste.",
+    image: "DSC_2875.jpg"
+  }
+]
+
+
 const AboutUs = () => {
   return (
     <div className="mt-24">
@@ -44,6 +65,17 @@ const AboutUs = () => {
             Christobal Home sinónimo de diseño y decoración.
           </p>
         </div>
+      </div>
+      <div className="flex justify-center my-16">
+        {cardData.map(card => 
+        <div key={card.title}>
+          <CardAbout
+           title={card.title}
+           description={card.description}
+           image={card.image}
+          />
+          </div>
+        )}
       </div>
     </div>
   );

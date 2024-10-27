@@ -3,9 +3,14 @@ import { modalActions } from "../store/modalSlice";
 import cart from "../util/icons/icons8-carrito-de-compras-24.png";
 import DropDownProducts from "./dropdownProducts";
 import { useHeaderContext } from "../store/HeaderContext";
+import { useEffect, useState } from "react";
 
 export default function Header() {
+
+  const [float, setFloat] = useState(false);
+
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+
   const {
     dispatch,
     path,
@@ -19,8 +24,28 @@ export default function Header() {
     dispatch(modalActions.openModalHandler());
   };
 
+  const activePosition = "fixed left-0 top-0 w-full z-50 bg-white transform transition-all easy-in-out duration-500 translate-y-0"
+  //const initialPosition = "transform -translate-y-full"
+  useEffect(() => {
+    const handleScroll = () => {
+      if(window.scrollY > 50){
+        setFloat(true);
+      }else{
+        setFloat(false);
+      }
+    }
+
+    window.addEventListener( 'scroll', handleScroll );
+
+    return () => {
+      window.removeEventListener( 'scroll', handleScroll );
+    }
+  }, [])
+  //console.log(float)
   return (
-    <header className={`fixed left-0 top-0 w-full z-50 text-white font-inherit hidden md:block ${path !== "/" ? "bg-white" : ""}`}>
+    <header 
+    className={`${float ? activePosition : "" } ${path !== "/" ? "bg-white" : ""}`} 
+    >
       <div className="container mx-auto flex items-center h-24">
         <img
           className="h-16 rounded-full m-0"

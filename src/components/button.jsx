@@ -20,6 +20,8 @@ export default function Button({ children, classes, ...props }) {
 
   const headerButton = `bg-opacity-5 m-2 p-2 rounded border-solid border-2 hover:border-stone-900 active:bg-stone-900`;
 
+  const input = "p-2 text-stone-800 bg-grisCard hover:bg-stone-300 transfrom transition-all duration-700"
+
   switch (classes) {
     default:
       classes = defButton;
@@ -41,6 +43,9 @@ export default function Button({ children, classes, ...props }) {
       break;
     case "detail":
       classes = detail;
+      break;
+    case "input":
+      classes = input;
       break;
   }
   return (

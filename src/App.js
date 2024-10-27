@@ -6,6 +6,7 @@ import ProductsFilter from './components/productFilter';
 import ItemDetails from './components/itemDetails';
 import AboutUs from './components/aboutUs';
 import Contact from './components/contact';
+import Help from './components/help';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
       { path: 'about', element: <AboutUs /> },
       { path: 'shop', element: <Shop /> },
       { path: 'contact', element: <Contact /> },
+      { path: 'help', element: <Help />}
     ],
   },
 ]);

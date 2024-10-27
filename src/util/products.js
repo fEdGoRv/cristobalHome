@@ -87,7 +87,7 @@ export const products = {
   ],
 };
 
-export const catergories = [
+export const categories = [
   {
     id: 'pinchos',
     name: 'Pinchos',

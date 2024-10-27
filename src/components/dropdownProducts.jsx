@@ -4,7 +4,11 @@ import "./dropdownproducts.css";
 import { useHeaderContext } from "../store/HeaderContext";
 
 const DropDownProducts = () => {
-  const { navigate, underlineStyle, sectionStyle, setUnderline } =
+  const { 
+    navigate, 
+    underlineStyle, 
+    sectionStyle, 
+    setUnderline } =
     useHeaderContext();
 
   const [dropdownOpen, setDropdownOpen] = useState(false);

@@ -60,7 +60,7 @@ const Home = () => {
       </div>
       <div className="h-96 bg-[url('/public/pinchos/DSC_2862.jpg')] text-white bg-cover bg-center grid place-items-center">
         <h2 className="font-semibold font-josefin text-6xl">NUEVA COLECCIÓN</h2>
-        <p className="text-xl font-semibold">
+        <p className="text-xl font-semibold font-josefin">
           Cristobal es sinónimo de diseño y decoración.
           Conoce en nuestra tienda la nueva colección
         </p>

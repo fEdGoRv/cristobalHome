@@ -8,6 +8,8 @@ import { useEffect, useState } from "react";
 export default function Header() {
 
   const [float, setFloat] = useState(false);
+  const [initialPos, setInitialPos] = useState(false);
+  const [fixedPos, setFixedPosition] = useState(false);
 
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
 
@@ -25,7 +27,7 @@ export default function Header() {
   };
 
   const activePosition = "fixed left-0 top-0 w-full z-50 bg-white transform transition-all easy-in-out duration-500 translate-y-0"
-  //const initialPosition = "transform -translate-y-full"
+  const initialPosition = "transform -translate-y-full "
   useEffect(() => {
     const handleScroll = () => {
       if(window.scrollY > 50){
@@ -41,10 +43,32 @@ export default function Header() {
       window.removeEventListener( 'scroll', handleScroll );
     }
   }, [])
-  //console.log(float)
+  
+
+  useEffect(()=>{
+    let initialTimer;
+    if(float){
+      setInitialPos(true);
+      initialTimer = setTimeout(()=>{
+        setInitialPos(false);
+        setFixedPosition(true)
+      }, 300);
+    }else{
+      setFixedPosition(false);
+      setInitialPos(false);
+    }
+    return ()=>{
+      clearTimeout(initialTimer);
+    }
+  },[float])
+
   return (
     <header 
-    className={`${float ? activePosition : "" } ${path !== "/" ? "bg-white" : ""}`} 
+    className={`
+      ${initialPos ? initialPosition : ""}
+      ${fixedPos ? activePosition: ""}
+      ${path !== "/" ? "bg-white" : ""}
+      `} 
     >
       <div className="container mx-auto flex items-center h-24">
         <img

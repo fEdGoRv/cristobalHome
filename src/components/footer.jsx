@@ -56,14 +56,14 @@ const Footer = () => {
           <input
           type="email"
           ref={email}
-          className="p-2 text-morao"
+          className="p-2 border-solid border-2 border-stone-300 text-morao"
           placeholder="Ingresa tu email"
           />
           <Button
           classes="input"
           onClick={handleSuscription}
           >
-            Suscribete
+            SUSCRIBITE
           </Button>
         </div>
       </div>

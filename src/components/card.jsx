@@ -23,38 +23,42 @@ const Card = ({ name, image, price, id: prodId }) => {
     navigate(`prodDetail/${prodId}`);
   };
   const animation = useSelector((state) => state.cardCategories.animation);
-   const active = useSelector((state) => state.cardCategories.active);
-   const hiddenStyle = "opacity-0 pointer-events-none translate-y-60";
+  const active = useSelector((state) => state.cardCategories.active);
+  const hiddenStyle = "opacity-0 pointer-events-none translate-y-60";
   const visibleStyle = "opacity-1 translate-y-48";
-  
+
   return (
-    <div 
-    className="min-h-72"
-    onMouseOver={() => {
-      dispatch(cardCategoriesActions.handleAnimation(prodId))
-    }}
-    onMouseLeave={() => {
-      dispatch(cardCategoriesActions.handleAnimation(""))
-      dispatch(cardCategoriesActions.handleActive(false))
-    }}
-    onMouseEnter={() => dispatch(cardCategoriesActions.handleActive(true))}
-    >
     <div
-    className="w-64 h-full m-4 p-4 bg-cover bg-center"
-    style={{backgroundImage: `url(/pinchos/${image})`}}
+      className="min-h-72"
+      onMouseOver={() => {
+        dispatch(cardCategoriesActions.handleAnimation(prodId))
+      }}
+      onMouseLeave={() => {
+        dispatch(cardCategoriesActions.handleAnimation(""))
+        dispatch(cardCategoriesActions.handleActive(false))
+      }}
+      onMouseEnter={() => dispatch(cardCategoriesActions.handleActive(true))}
     >
-      <div 
-       className={`flex px-4 pb-4 pt-0 mt-2 transform transition-all duration-500 ${
-        active && animation === prodId ? visibleStyle : hiddenStyle
-       } `}
+      <div
+        className="w-64 h-full m-4 p-4 bg-cover bg-center"
+        style={{ backgroundImage: `url(/pinchos/${image})` }}
       >
-        <Button onClick={showDetails} classes="white" type="button">
-          <img className="max-w-8" src={lupa} alt="lupa" />
-        </Button>
-        <Button classes="white" onClick={addItem} type="button">
-          AÑADIR AL CARRITO
-        </Button>
-      </div>
+        <div className="flex px-4 pb-4 pt-0 mt-2">
+          <div className={`transform transition-all duration-500 ${
+            active && animation === prodId ? visibleStyle : hiddenStyle
+            } `}>
+            <Button onClick={showDetails} classes="white" type="button">
+              <img className="max-w-8" src={lupa} alt="lupa" />
+            </Button>
+          </div>
+          <div className={`transform transition-all duration-700 ${
+            active && animation === prodId ? visibleStyle : hiddenStyle
+            } `}>
+            <Button classes="white" onClick={addItem} type="button">
+              AÑADIR AL CARRITO
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );

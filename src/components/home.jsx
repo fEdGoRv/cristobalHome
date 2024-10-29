@@ -4,6 +4,7 @@ import "./home.css";
 import { useCallback, useEffect } from "react";
 import HomeCardDisplayer from "./homeCardDisplayer";
 
+
 const Home = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -67,6 +68,9 @@ const Home = () => {
         <Button>
           VER MÁS
         </Button>
+      </div>
+      <div>
+        
       </div>
     </>
   );

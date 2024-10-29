@@ -22,6 +22,8 @@ export default function Button({ children, classes, ...props }) {
 
   const input = "p-2 text-stone-800 bg-grisCard hover:bg-stone-300 transfrom transition-all duration-700 border-solid border-stone-300 border-2"
 
+  const white = "p-2 font-semibold font-josefin bg-white border-solid border-stone-300 border text-xs"
+
   switch (classes) {
     default:
       classes = defButton;
@@ -46,6 +48,9 @@ export default function Button({ children, classes, ...props }) {
       break;
     case "input":
       classes = input;
+      break;
+    case "white":
+      classes = white;
       break;
   }
   return (

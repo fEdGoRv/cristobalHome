@@ -1,8 +1,10 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
+import lupa from '../util/icons/lupa.svg'
 import Button from "./button";
 import { cartActions } from "../store/cartSlice";
-import cart from "../util/icons/icons8-carrito-de-compras-24.png";
+import { cardCategoriesActions } from "../store/cardCategoriesSlice";
 
 const Card = ({ name, image, price, id: prodId }) => {
   const dispatch = useDispatch();
@@ -20,27 +22,39 @@ const Card = ({ name, image, price, id: prodId }) => {
   const showDetails = () => {
     navigate(`prodDetail/${prodId}`);
   };
+  const animation = useSelector((state) => state.cardCategories.animation);
+   const active = useSelector((state) => state.cardCategories.active);
+   const hiddenStyle = "opacity-0 pointer-events-none translate-y-60";
+  const visibleStyle = "opacity-1 translate-y-48";
+  
   return (
-    <div className="relative m-4 flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96">
-      <div className="relative m-2.5 overflow-hidden text-white rounded-md">
-        <img src={`../pinchos/${image}`} alt="card-image" />
-      </div>
-      <div className="p-4">
-        <h6 className="mb-2 text-slate-800 text-xl font-semibold">{name}</h6>
-        {/* <p className="text-slate-600 leading-normal font-light">
-                    {description}
-                </p> */}
-      </div>
-      <div className="px-4 pb-4 pt-0 mt-2">
-        <Button onClick={addItem} type="button">
-          <span className="flex">
-            Add+
-            <img src={cart} alt="carrito" />
-          </span>
+    <div 
+    className="min-h-72"
+    onMouseOver={() => {
+      dispatch(cardCategoriesActions.handleAnimation(prodId))
+    }}
+    onMouseLeave={() => {
+      dispatch(cardCategoriesActions.handleAnimation(""))
+      dispatch(cardCategoriesActions.handleActive(false))
+    }}
+    onMouseEnter={() => dispatch(cardCategoriesActions.handleActive(true))}
+    >
+    <div
+    className="w-64 h-full m-4 p-4 bg-cover bg-center"
+    style={{backgroundImage: `url(/pinchos/${image})`}}
+    >
+      <div 
+       className={`flex px-4 pb-4 pt-0 mt-2 transform transition-all duration-500 ${
+        active && animation === prodId ? visibleStyle : hiddenStyle
+       } `}
+      >
+        <Button onClick={showDetails} classes="white" type="button">
+          <img className="max-w-8" src={lupa} alt="lupa" />
         </Button>
-        <Button onClick={showDetails} classes="detail" type="button">
-          Ver Detalles
+        <Button classes="white" onClick={addItem} type="button">
+          AÑADIR AL CARRITO
         </Button>
+      </div>
       </div>
     </div>
   );

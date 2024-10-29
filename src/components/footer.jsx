@@ -20,7 +20,7 @@ const Footer = () => {
     email.current.value = "";
   }
   return (
-    <div className="grid grid-cols-3 h-64 bg-morao shadow-lg">
+    <div className="grid grid-cols-3 mt-16 h-64 bg-morao shadow-lg">
       <div className="m-4 text-white font-lora">
         <p className="mb-4 font-bold">Cristobal Home</p>
         <div className="border-b-2 border-stone-800 m-auto max-w-16"></div>

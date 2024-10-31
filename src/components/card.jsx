@@ -43,11 +43,11 @@ const Card = ({ name, image, price, id: prodId }) => {
         className="relative w-64 h-full m-4 p-4 bg-cover bg-center"
         style={{ backgroundImage: `url(/pinchos/${image})` }}
       >
-        <div className={`w-24 transform transition-all duration-700 ${activeB ? " opacity-1 translate-y-24 translate-x-24" : "opacity-0 translate-y-32 translate-x-24 "}`}>
+        <div className={`w-24 transform transition-all duration-700 ${animation === prodId && activeB ? " opacity-1 translate-y-24 translate-x-24" : "opacity-0 translate-y-32 translate-x-24 "}`}>
           <img className="fixed" src={buble} alt="buble" />
           <p className="absolute top-2 left-2 text-white ">Añadir al Carrito</p>
         </div>
-        <div className={`w-24 transform transition-all duration-700 ${active ? " opacity-1 translate-y-24 translate-x-2" : "opacity-0 translate-y-32 translate-x-2"}`}>
+        <div className={`w-24 transform transition-all duration-700 ${animation === prodId && active ? " opacity-1 translate-y-24 translate-x-2" : "opacity-0 translate-y-32 translate-x-2"}`}>
           <img className="fixed" src={buble} alt="buble" />
           <p className="absolute top-2 left-2 text-white">Vista Rápida</p>
         </div>

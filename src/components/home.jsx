@@ -3,6 +3,7 @@ import Button from "./button";
 import "./home.css";
 import { useCallback, useEffect } from "react";
 import HomeCardDisplayer from "./homeCardDisplayer";
+import SlideCards from "./slideCards";
 
 
 const Home = () => {
@@ -70,7 +71,7 @@ const Home = () => {
         </Button>
       </div>
       <div>
-        
+        <SlideCards />
       </div>
     </>
   );

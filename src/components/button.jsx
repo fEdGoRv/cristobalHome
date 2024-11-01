@@ -7,7 +7,7 @@ export default function Button({ children, classes, ...props }) {
   const cardCatButton =`action ${active ? "active" : ""} m-1 rounded-md bg-stone-800 py-2 px-4 border border-transparent text-center text-sm text-white shadow-md transform transition-all duration-700 hover:bg-morao`;
   
   const cardButton =
-    "m-1 rounded-md bg-stone-800 py-2 px-4 border border-transparent text-center text-sm text-white shadow-md transform transition-all duration-700 hover:bg-morao";
+    "m-1 rounded-md font-semibold bg-stone-800 py-2 px-4 border border-transparent text-center text-sm text-white shadow-md transform transition-all duration-700 hover:bg-morao";
   const defButton =
     "bg-morao p-2 font-semibold font-lora hover:bg-stone-800 transform transition-all duration-700 text-white text-xl p-2 m-1 rounded shadow-lg";
 

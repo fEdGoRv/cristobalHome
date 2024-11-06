@@ -2,7 +2,8 @@ import { useSelector } from "react-redux";
 
 
 export default function Button({ children, classes, ...props }) {
-  const active = useSelector((state) => state.cardCategories.active)
+  const active = useSelector((state) => state.cardCategories.active);
+  const activeCarousel = useSelector((state) => state.cardCategories.activeCarousel);
   
   const cardCatButton =`action ${active ? "active" : ""} m-1 rounded-md bg-stone-800 py-2 px-4 border border-transparent text-center text-sm text-white shadow-md transform transition-all duration-700 hover:bg-morao`;
   
@@ -20,10 +21,12 @@ export default function Button({ children, classes, ...props }) {
 
   const headerButton = `bg-opacity-5 m-2 p-2 rounded border-solid border-2 hover:border-stone-900 active:bg-stone-900`;
 
-  const input = "p-2 text-stone-800 bg-grisCard hover:bg-stone-300 transfrom transition-all duration-700 border-solid border-stone-300 border-2"
+  const input = "p-2 text-stone-800 bg-grisCard hover:bg-stone-300 transfrom transition-all duration-700 border-solid border-stone-300 border-2";
 
-  const white = "p-2 font-semibold font-josefin bg-white border-solid border-stone-300 border text-xs"
+  const white = "p-2 font-semibold font-josefin bg-white border-solid border-stone-300 border text-xs";
 
+  const carousel = `${activeCarousel ? "opacity-50" : "opacity-0"} p-2 transform transition-all duration-700 hover:opacity-100 bg-grisCard `;
+  
   switch (classes) {
     default:
       classes = defButton;
@@ -51,6 +54,9 @@ export default function Button({ children, classes, ...props }) {
       break;
     case "white":
       classes = white;
+      break;
+    case "carousel":
+      classes = carousel;
       break;
   }
   return (

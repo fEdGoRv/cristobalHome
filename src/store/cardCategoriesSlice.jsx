@@ -2,7 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const cardCategoriesSlice = createSlice({
   name: "cardCategories",
-  initialState: {animation: "", active: false, activeB: false},
+  initialState: {
+    animation: "", 
+    active: false, 
+    activeB: false,
+    activeCarousel: false
+  },
   reducers: {
     handleAnimation(state, action) {
       action.payload !== undefined ? state.animation = action.payload : state.animation;
@@ -12,6 +17,9 @@ const cardCategoriesSlice = createSlice({
     },
     handleActiveB(state, action) {
       action.payload !== undefined ? state.activeB = action.payload : state.activeB;
+    },
+    handleCarousel(state, action) {
+      action.payload !== undefined ? state.activeCarousel = action.payload : state.activeCarousel;
     },
   },
 });

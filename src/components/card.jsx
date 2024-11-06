@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 
 import lupa from '../util/icons/lupa.svg'
 import Button from "./button";
 import { cartActions } from "../store/cartSlice";
 import { cardCategoriesActions } from "../store/cardCategoriesSlice";
 import buble from "../util/icons/buble.svg"
+import { modalActions } from "../store/modalSlice";
 
 const Card = ({ name, image, price, id: prodId }) => {
   const dispatch = useDispatch();
@@ -19,9 +19,10 @@ const Card = ({ name, image, price, id: prodId }) => {
       }),
     );
   };
-  const navigate = useNavigate();
   const showDetails = () => {
-    navigate(`prodDetail/${prodId}`);
+    dispatch(modalActions.openDetailModalHandler());
+    dispatch(modalActions.closeCartModalHandler());
+    dispatch(modalActions.openModalHandler());
   };
   const animation = useSelector((state) => state.cardCategories.animation);
   const active = useSelector((state) => state.cardCategories.active);

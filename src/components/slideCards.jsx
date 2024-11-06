@@ -2,24 +2,29 @@ import { useEffect, useState } from "react";
 import { allProd } from "../util/products";
 import Card from './card';
 import Button from "./button";
+import left from "../util/icons/arrow<.svg";
+import right from "../util/icons/arrow>.svg";
+import { useDispatch } from "react-redux";
+import { cardCategoriesActions } from "../store/cardCategoriesSlice";
 
 const SlideCards = () => {
     const [displayingObjects, setDisplayingObject] = useState([])
     const [currentIndex, setCurrentIndex] = useState(0);
+    const dispatch = useDispatch();
     const cardsPerSlice = 3;
 
 
     const nextSlice = () => {
-        setCurrentIndex((prevIndex) =>{
-            const  newIndex = prevIndex + cardsPerSlice;
+        setCurrentIndex((prevIndex) => {
+            const newIndex = prevIndex + cardsPerSlice;
             return newIndex >= allProd.length ? 0 : newIndex;
         });
     }
 
     const lastSlice = () => {
-        setCurrentIndex((prevIndex)=> {
-           const lastIndex = prevIndex - cardsPerSlice;
-           return lastIndex <= 0 ? allProd.length : lastIndex;
+        setCurrentIndex((prevIndex) => {
+            const lastIndex = prevIndex - cardsPerSlice;
+            return lastIndex <= 0 ? allProd.length : lastIndex;
         });
     }
 
@@ -35,7 +40,7 @@ const SlideCards = () => {
         setDisplayingObject(allProd.slice(currentIndex, cardsPerSlice + currentIndex));
     }, [currentIndex]);
 
-    const styleCont = "flex m-auto mt-10 w-auto border-solid border-4 border-grisCard rounded-xl max-w-7xl w-auto";
+    const styleCont = "flex m-auto mt-10 w-auto border-solid border-4 border-grisCard rounded-xl max-w-7xl";
 
     return (
         <div className={styleCont}>
@@ -53,7 +58,16 @@ const SlideCards = () => {
                     </Button>
                 </div>
             </div>
-            <div className="flex">
+            <div 
+            className="relative flex border-solid border-2 border-black "
+            onMouseEnter={()=>dispatch(cardCategoriesActions.handleCarousel(true))}
+            onMouseLeave={()=>dispatch(cardCategoriesActions.handleCarousel(false))}
+            >
+                <div className="fixed w-8 h-12 top-36 -left-4">
+                    <Button classes="carousel" onClick={nextSlice}>
+                        <img src={left} alt="left-arrow" />
+                    </Button>
+                </div>
                 {displayingObjects.map(prod =>
                     <div key={prod.id} className="m-4">
                         <Card
@@ -65,6 +79,11 @@ const SlideCards = () => {
                         />
                         <p>{prod.name}</p>
                     </div>)}
+                <div className="fixed w-8 h-12 top-36 right-0">
+                    <Button classes="carousel" onClick={lastSlice}>
+                        <img src={right} alt="right-arrow" />
+                    </Button>
+                </div>
             </div>
 
         </div>

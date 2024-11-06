@@ -24,7 +24,10 @@ export default function Header() {
 
   const openModal = () => {
     dispatch(modalActions.openModalHandler());
+    dispatch(modalActions.openCartModalHandler());
+    dispatch(modalActions.closeDetailModalHandler());
   };
+
 
   const activePosition = "fixed left-0 top-0 w-full z-50 bg-white transform transition-all easy-in-out duration-500 translate-y-0"
   const initialPosition = "transform -translate-y-full "

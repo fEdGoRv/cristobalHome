@@ -1,25 +1,27 @@
 import { useParams } from "react-router-dom";
-import { products } from "../util/products";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import Button from "./button";
 import { cartActions } from "../store/cartSlice";
 import { useEffect, useState } from "react";
+import { modalActions } from "../store/modalSlice";
 
 const ItemDetails = () => {
   const dispatch = useDispatch();
-  const { prodId, catId } = useParams();
-  const [product, setProduct] = useState(null);
+  const { prodId } = useParams();
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (products[catId]) {
-      const product = products[catId]?.find((item) => item.id === prodId);
-      setLoading(false);
-      setProduct(product);
-    }
-  }, [prodId, catId]);
+  console.log(prodId);
 
+  useEffect(()=>{
+    if(prodId){
+      dispatch(modalActions.productDataHandler(prodId));
+    }
+    setLoading(false);
+  },[prodId]);
+
+  const product = useSelector(state => state.modal.product);
+  
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -27,9 +29,7 @@ const ItemDetails = () => {
   if (!product) {
     return <p>Product not ready</p>;
   }
-
-  //className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
-
+  
   const addItem = () => {
     dispatch(
       cartActions.addItemToCart({

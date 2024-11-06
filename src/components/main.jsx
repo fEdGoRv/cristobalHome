@@ -7,10 +7,13 @@ import Modal from "./modal";
 import Cart from "./cart";
 import { modalActions } from "../store/modalSlice";
 import Footer from "./footer";
+import ItemDetails from "./itemDetails";
 
 const Main = () => {
   const dispatch = useDispatch();
   const isOpen = useSelector((state) => state.modal.isOpen);
+  const cartModal = useSelector(state => state.modal.cartModal);
+  const detailModal = useSelector(state => state.modal.detailModal);
   const location = useLocation();
   let path = location.pathname;
 
@@ -18,25 +21,16 @@ const Main = () => {
     dispatch(modalActions.closeModalHandler());
   };
 
-  // const getBackgroundStyle = () => {
-  //     if (path === '/') {
-  //         return "home-taste";
-  //     }
-  //     else {
-  //         return 'white';
-  //     }
-  // }
-
   return (
     <div
-      style={{ "--home-taste": "url('/pinchos/DSC_2923.jpg')" }}
       className={`bg-${path === "/" ? "title-about" : "white"} bg-cover bg-center h-screen text-center`}
     >
       <HeaderProvider>
         <Header />
       </HeaderProvider>
       <Modal isOpen={isOpen} onClose={onClose}>
-        <Cart />
+        {cartModal && <Cart />}
+        {detailModal && <ItemDetails />}
       </Modal>
       <div>
         <main>

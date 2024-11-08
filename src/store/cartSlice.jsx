@@ -32,6 +32,7 @@ const cartSlice = createSlice({
       state.totalQuantity--;
       if (existingItem.quantity > 1) {
         existingItem.quantity -= 1;
+        existingItem.totalPrice = existingItem.quantity * existingItem.price;
       } else {
         const i = state.items.findIndex((item) => item.id === id, 1);
         if (i !== -1) {

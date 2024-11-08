@@ -10,30 +10,25 @@ const modalSlice = createSlice({
     product: {}
    },
   reducers: {
-    openModalHandler(state) {
+    openDetailModal (state, action){
       state.isOpen = true;
-    },
-    closeModalHandler(state) {
-      state.isOpen = false;
-    },
-    openCartModalHandler(state) {
-      state.cartModal = true;
-    },
-    closeCartModalHandler(state) {
-      state.cartModal = false;
-    },
-    openDetailModalHandler(state) {
       state.detailModal = true;
-    },
-    closeDetailModalHandler(state) {
-      state.detailModal = false;
-    },
-    productDataHandler(state, action) {
+      state.cartModal = false;
       if(action.payload){
         const prod= allProd.find(item => item.id === action.payload);
         state.product = prod;
       }
-    }
+    },
+    closeModalHandler(state) {
+      state.isOpen = false;
+      state.detailModal = false;
+      state.cartModal = false;
+    },
+    openCartModalHandler(state) {
+      state.isOpen = true;
+      state.cartModal = true;
+      state.detailModal = false;
+    },
   },
 });
 

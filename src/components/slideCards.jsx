@@ -59,7 +59,7 @@ const SlideCards = () => {
                 </div>
             </div>
             <div 
-            className="relative flex border-solid border-2 border-black "
+            className="relative flex"
             onMouseEnter={()=>dispatch(cardCategoriesActions.handleCarousel(true))}
             onMouseLeave={()=>dispatch(cardCategoriesActions.handleCarousel(false))}
             >

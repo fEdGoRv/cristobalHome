@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useCallback } from "react";
 
 import lupa from '../util/icons/lupa.svg'
 import Button from "./button";
@@ -7,9 +8,11 @@ import { cardCategoriesActions } from "../store/cardCategoriesSlice";
 import buble from "../util/icons/buble.svg"
 import { modalActions } from "../store/modalSlice";
 
+
 const Card = ({ name, image, price, id: prodId }) => {
   const dispatch = useDispatch();
-  const addItem = () => {
+  const currentProduct = useSelector(state => state.modal.product)
+  const addItem = useCallback(() => {
     dispatch(
       cartActions.addItemToCart({
         name,
@@ -18,12 +21,14 @@ const Card = ({ name, image, price, id: prodId }) => {
         id: prodId,
       }),
     );
-  };
-  const showDetails = () => {
-    dispatch(modalActions.openDetailModalHandler());
-    dispatch(modalActions.closeCartModalHandler());
-    dispatch(modalActions.openModalHandler());
-  };
+  },[ dispatch, name, image, price, prodId]);
+
+  const showDetails = useCallback(() => {
+    console.log("renderizandoo");
+    if(!currentProduct || currentProduct.id !== prodId) 
+    dispatch(modalActions.openDetailModal(prodId));
+  }, [dispatch, prodId, currentProduct]);
+
   const animation = useSelector((state) => state.cardCategories.animation);
   const active = useSelector((state) => state.cardCategories.active);
   const activeB = useSelector((state) => state.cardCategories.activeB)

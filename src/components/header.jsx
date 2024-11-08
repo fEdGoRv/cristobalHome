@@ -23,9 +23,7 @@ export default function Header() {
   } = useHeaderContext();
 
   const openModal = () => {
-    dispatch(modalActions.openModalHandler());
     dispatch(modalActions.openCartModalHandler());
-    dispatch(modalActions.closeDetailModalHandler());
   };
 
 

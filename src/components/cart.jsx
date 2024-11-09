@@ -7,8 +7,8 @@ const Cart = () => {
   const totalAmount = cart.reduce((acc, item) => acc + item.totalPrice, 0);
 
   return (
-    <div className="bg-grisCard text-center">
-      <h1 className="text-2xl text-center text-morao rounded bg-stone-800">
+    <div className="text-center">
+      <h1 className="text-2xl text-center text-morao bg-stone-800">
         Tu carrito
       </h1>
       <ul>
@@ -29,7 +29,7 @@ const Cart = () => {
           );
         })}
       </ul>
-      <div className="text-xl text-morao bg-stone-800 rounded ">
+      <div className="text-xl text-morao bg-stone-800">
         Monto Total: {totalAmount}
       </div>
     </div>

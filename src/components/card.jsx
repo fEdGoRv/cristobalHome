@@ -24,8 +24,7 @@ const Card = ({ name, image, price, id: prodId }) => {
   },[ dispatch, name, image, price, prodId]);
 
   const showDetails = useCallback(() => {
-    if(!currentProduct || currentProduct.id !== prodId) 
-    console.log("renderizandoo");
+    if(!currentProduct || currentProduct.id !== prodId)
     dispatch(modalActions.openDetailModal(prodId));
   }, [dispatch, prodId, currentProduct]);
 

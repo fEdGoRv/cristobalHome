@@ -24,7 +24,7 @@ const CartItem = (props) => {
   };
 
   return (
-    <div className="flex flex-row justify-center bg-stone-400">
+    <div className="flex flex-row justify-center">
       <div className="max-w-10">
         <img src={`/pinchos/${image}`} alt="foti" />
       </div>

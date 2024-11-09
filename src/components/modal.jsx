@@ -10,7 +10,7 @@ const Modal = ({ children, onClose, isOpen }) => {
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
       <dialog
         open={isOpen}
-        className="rounded bg-stone-400 p-6 max-w-4xl w-full z-50"
+        className="p-6 max-w-4xl w-full z-50"
         onClick= {()=>onClose()}
       >
         <div className="flex flex-row-reverse w-full">

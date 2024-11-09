@@ -11,7 +11,7 @@ import { modalActions } from "../store/modalSlice";
 
 const Card = ({ name, image, price, id: prodId }) => {
   const dispatch = useDispatch();
-  const currentProduct = useSelector(state => state.modal.product)
+  const currentProduct = useSelector(state => state.modal.product);
   const addItem = useCallback(() => {
     dispatch(
       cartActions.addItemToCart({
@@ -24,8 +24,8 @@ const Card = ({ name, image, price, id: prodId }) => {
   },[ dispatch, name, image, price, prodId]);
 
   const showDetails = useCallback(() => {
-    console.log("renderizandoo");
     if(!currentProduct || currentProduct.id !== prodId) 
+    console.log("renderizandoo");
     dispatch(modalActions.openDetailModal(prodId));
   }, [dispatch, prodId, currentProduct]);
 

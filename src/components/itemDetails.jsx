@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Button from "./button";
 import { cartActions } from "../store/cartSlice";
@@ -10,10 +10,10 @@ const ItemDetails = () => {
 
   const product = useSelector(state => state.modal.product);
 
-  if(product){
+  useEffect(()=>{
     setLoading(false);
-  }
-
+  },[product])
+    
   if (loading) {
     return <p>Loading...</p>;
   }

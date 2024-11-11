@@ -59,15 +59,16 @@ const SlideCards = () => {
                 </div>
             </div>
             <div 
-            className="relative flex"
+            className="flex"
             onMouseEnter={()=>dispatch(cardCategoriesActions.handleCarousel(true))}
             onMouseLeave={()=>dispatch(cardCategoriesActions.handleCarousel(false))}
             >
-                <div className="fixed w-8 h-12 top-36 -left-4">
+                <div className=" w-8 h-12 top-36 -left-4">
                     <Button classes="carousel" onClick={nextSlice}>
                         <img src={left} alt="left-arrow" />
                     </Button>
                 </div>
+                <div className="flex justify-center ">
                 {displayingObjects.map(prod =>
                     <div key={prod.id} className="m-4">
                         <Card
@@ -79,7 +80,8 @@ const SlideCards = () => {
                         />
                         <p>{prod.name}</p>
                     </div>)}
-                <div className="fixed w-8 h-12 top-36 right-0">
+                </div>
+                <div className=" w-8 h-12 top-36 right-0">
                     <Button classes="carousel" onClick={lastSlice}>
                         <img src={right} alt="right-arrow" />
                     </Button>

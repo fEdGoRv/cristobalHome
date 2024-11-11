@@ -12,7 +12,7 @@ export default function Button({ children, classes, ...props }) {
   const defButton =
     "bg-morao p-2 font-semibold font-lora hover:bg-stone-800 transform transition-all duration-700 text-white text-xl p-2 m-1 rounded shadow-lg";
 
-  const cartItemButton = `w-5 rounded-full ${defButton}`;
+  const cartItemButton = `w-6 rounded-full ${defButton}`;
 
   const modalCancel = ` w-8 ${defButton}`;
 

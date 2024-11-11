@@ -27,7 +27,7 @@ export default function Header() {
   };
 
 
-  const activePosition = "fixed left-0 top-0 w-full z-50 bg-white transform transition-all easy-in-out duration-500 translate-y-0"
+  const activePosition = "fixed left-0 top-0 w-full z-50 bg-white transform transition-all easy-in-out duration-500 translate-y-0 border-b-2 border-grisCard"
   const initialPosition = "transform -translate-y-full "
   useEffect(() => {
     const handleScroll = () => {

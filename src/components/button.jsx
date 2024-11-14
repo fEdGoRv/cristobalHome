@@ -25,7 +25,7 @@ export default function Button({ children, classes, ...props }) {
 
   const white = "p-2 font-semibold font-josefin bg-white border-solid border-stone-300 border text-xs";
 
-  const carousel = `${activeCarousel ? "opacity-50" : "opacity-0"} p-2 transform transition-all duration-700 hover:opacity-100 bg-grisCard `;
+  const carousel = `${activeCarousel ? "opacity-50" : "opacity-0"} p-2 transform transition-all duration-700 hover:opacity-100 bg-stone-300`;
   
   switch (classes) {
     default:

@@ -1,21 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { allProd } from "../util/products";
 
+const iS = { 
+  isOpen: false, 
+  cartModal: false, 
+  detailModal: false,
+  product: {},
+  position: {
+    x: "",
+    y: "",
+    width: "",
+    height: ""
+  },
+  newPosition: {
+    x: "",
+    y: "",
+    width: "",
+    height: ""
+  },
+  animation: false
+ }
+
 const modalSlice = createSlice({
   name: "modal",
-  initialState: { 
-    isOpen: false, 
-    cartModal: false, 
-    detailModal: false,
-    product: {},
-    position: {
-      x: "",
-      y: "",
-      width: "",
-      height: ""
-    },
-    animation: false
-   },
+  initialState: iS,
   reducers: {
     openDetailModal (state, action){
       state.isOpen = true;
@@ -34,6 +42,18 @@ const modalSlice = createSlice({
       state.detailModal = false;
       state.cartModal = false;
       state.animation = false;
+      state.position = {
+        x: "",
+        y: "",
+        width: "",
+        height: ""
+      },
+      state.newPosition = {
+        x: "",
+        y: "",
+        width: "",
+        height: ""
+      }   
     },
     openCartModalHandler(state) {
       state.isOpen = true;
@@ -41,7 +61,8 @@ const modalSlice = createSlice({
       state.detailModal = false;
     },
     handleAnimation(state, action){
-      action.payload !== undefined ? state.animation = action.payload : state.animation;
+      action.payload.animation !== undefined ? state.animation = action.payload.animation : state.animation;
+      action.payload.secPos !== undefined ? state.newPosition = action.payload.secPos : state.newPosition;
     }
   },
 });

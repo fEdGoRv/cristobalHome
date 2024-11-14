@@ -7,7 +7,7 @@ import { cartActions } from "../store/cartSlice";
 import { cardCategoriesActions } from "../store/cardCategoriesSlice";
 import buble from "../util/icons/buble.svg"
 import { modalActions } from "../store/modalSlice";
-//import './card.css';
+
 
 const Card = ({ name, image, price, id: prodId }) => {
   const dispatch = useDispatch();

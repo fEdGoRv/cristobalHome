@@ -12,7 +12,7 @@ const Modal = ({ children, onClose, isOpen }) => {
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
       <dialog
         open={isOpen}
-        className={`p-6 w-full h-1/2 z-50 ${animation ? "max-w-4xl" : "max-w-md max-h-96"}`}
+        className={`p-6 w-full z-50 ${animation ? "max-w-4xl h-1/2" : "max-w-4xl max-h-96"}`}
         onClick= {()=>onClose()}
       >
         <div className="flex flex-row-reverse w-full">

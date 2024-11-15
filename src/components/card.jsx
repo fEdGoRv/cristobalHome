@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useCallback, useRef } from "react";
-
+import { useNavigate } from "react-router-dom"
+ 
 import lupa from '../util/icons/lupa.svg'
 import Button from "./button";
 import { cartActions } from "../store/cartSlice";
@@ -10,9 +11,11 @@ import { modalActions } from "../store/modalSlice";
 
 
 const Card = ({ name, image, price, id: prodId }) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const cardRef = useRef(null);
-  const addItem = useCallback(() => {
+  const addItem = useCallback((event) => {
+    event.stopPropagation();
     dispatch(
       cartActions.addItemToCart({
         name,
@@ -23,7 +26,8 @@ const Card = ({ name, image, price, id: prodId }) => {
     );
   }, [dispatch, name, image, price, prodId]);
 
-  const showDetails = useCallback(() => {
+  const showDetails = useCallback((event) => {
+    event.stopPropagation();
     const cardRect = cardRef.current.getBoundingClientRect();
     const position = {
       x: cardRect.x,
@@ -33,6 +37,10 @@ const Card = ({ name, image, price, id: prodId }) => {
     }
     dispatch(modalActions.openDetailModal({ prod: prodId, position: position }))
   }, [dispatch, prodId]);
+
+  const handleDetailPage = () => {
+    navigate(`/${prodId}`);
+  }
 
   const animation = useSelector((state) => state.cardCategories.animation);
   const active = useSelector((state) => state.cardCategories.active);
@@ -49,6 +57,7 @@ const Card = ({ name, image, price, id: prodId }) => {
       onMouseLeave={() => {
         dispatch(cardCategoriesActions.handleAnimation(""))
       }}
+      onClick={handleDetailPage}
     >
       <div
         className="relative w-64 h-full m-4 p-4 bg-cover bg-center"

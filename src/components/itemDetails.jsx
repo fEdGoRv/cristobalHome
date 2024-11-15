@@ -13,8 +13,8 @@ const ItemDetails = () => {
   const product = useSelector(state => state.modal.product);
   const position = useSelector(state => state.modal.position);
   const newPos = useSelector(state => state.modal.newPosition);
-  const activeImg = "translate-x-0 translate-y-0 scale-x-110 scale-y-110";
-  let initialPosImg = `left-[${newPos.x}px] top-[${newPos.y}] w-[${newPos.width}px] h-[${newPos.height}]`;
+  const activeImg = "opacity-100 translate-x-0 translate-y-0 scale-x-110 scale-y-110";
+  let initialPosImg = "opacity-0";
   const activeDes = "transition-all translate-x-10 duration-700 opacity-100";
   const initialPosDes = "-translate-x-80 opacity-0 w-2"
 
@@ -41,7 +41,7 @@ const ItemDetails = () => {
       setTimeout(() => {
 
         const finalRect = overlay.getBoundingClientRect();
-        const newPos = {
+        const secPos = {
            x: finalRect.x,
            y: finalRect.y,
            width: finalRect.width,
@@ -50,7 +50,8 @@ const ItemDetails = () => {
 
         document.body.removeChild(overlay);
 
-        dispatch(modalActions.handleAnimation({secPos: newPos}))
+        dispatch(modalActions.handleAnimation({secPos: secPos}))
+        // initialPosImg = `left-[${newPos.x}px] top-[${newPos.y}] w-[${newPos.width}px] h-[${newPos.height}] translate-x-38 translate-y-38 scale-x-[${newPos.width}/${position.width}] scale[${newPos.height/position.height}]`
         setTimeout(() => {
           dispatch(modalActions.handleAnimation({animation: true}));
         }, 10);     
@@ -84,7 +85,16 @@ const ItemDetails = () => {
 
   return (
     <div className="flex justify-center">
-      <div className={`${animation && activeImg} ${newPos.x !== "" && !animation ? initialPosImg : "opacity-0"} transform transition-all duration-700`}>
+      <div 
+      className={`${animation ? activeImg : initialPosImg} transform transition-all duration-700`}
+      style={{
+        left: `${newPos.x}px`,
+        top: `${newPos.y}px`,
+        width: `${newPos.width}px`,
+        height: `${newPos.height}px`,
+        transform: `translateX(-24px) translateY(-24px) scaleX(${newPos.width/position.width}) scaleY(${newPos.height/position.height})`,
+      }}
+      >
         <img
           className="w-full h-96 object-cover"
           src={`/pinchos/${product.image}`}

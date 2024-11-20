@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { allProd } from "../util/products";
 import Card from './card';
 import Button from "./button";
-import left from "../util/icons/arrow<.svg";
-import right from "../util/icons/arrow>.svg";
+import left from "../util/icons/arrowLeft.svg";
+import right from "../util/icons/arrowRight.svg";
 import { useDispatch } from "react-redux";
 import { cardCategoriesActions } from "../store/cardCategoriesSlice";
 

@@ -5,6 +5,7 @@ import './shopMaps.css';
 const ShopMap = () => {
 
     const apiKey = "AIzaSyDDbD1guhdRrBjUi5wZVikIdxlAE0r0w24";
+    const mId = "35b2c09b1ac9371c"
 
     const mapContainerStyle = {
         width: '100%',
@@ -12,36 +13,30 @@ const ShopMap = () => {
     };
 
     const shopLocation = {
-        lat: -36.78228686277276,
-        lng: -59.87017005764709,
+        lat: -36.78234841353206,
+        lng: -59.87014115718526,
     };
 
-    // const handleMapLoad = (map) => {
-    //     const marker = new window.google.maps.marker.AdvancedMarkerElement({
-    //         position: shopLocation,
-    //         map: map,
-    //         title: 'Shop Location',
-    //     });
-
-    //     marker.content = document.createElement('div');
-    //     marker.content.innerHTML = `
-    //     <div style="background-color: white; padding: 5px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">
-    //       <strong>Shop</strong>
-    //     </div>
-    //   `;
-    // }
-
+    const handleMapLoad = (map) => {
+        new window.google.maps.marker.AdvancedMarkerElement({
+            position: shopLocation,
+            map: map,
+            title: 'Shop Location',
+        });
+    }
+     console.log(`map ID: ${mId}`)
     return (
         <LoadScript
-         googleMapsApiKey={apiKey}
-         libraries={['marker']}
-          >
+            googleMapsApiKey={apiKey}
+            libraries={['marker']}
+        >
             <GoogleMap
                 mapContainerStyle={mapContainerStyle}
                 center={shopLocation}
                 zoom={15}
-                //onLoad={handleMapLoad}
-           >
+                onLoad={handleMapLoad}
+                mapId={mId}
+            >
             </GoogleMap>
         </LoadScript>
     );

@@ -14,10 +14,11 @@ const Contact = () => {
       </div>
       <div className='flex justify-center'>
         <div className='w-72 mt-16'>
-          <div>
+          <div className='font-josefin'>
             <img className="w-24 m-auto" src={loc} alt="location" />
-            <p className='text-2xl text-morao font-josefin font-semibold mt-4'>Colon 1004</p>
-            <p className='text-2xl text-morao font-josefin font-semibold '>Azul, Bs As.</p>
+            <p className='font-bold text-2xl mt-4'>DIRECCIÓN</p>
+            <p className='text-2xl text-morao font-semibold '>Colon 1004</p>
+            <p className='text-2xl text-morao font-semibold '>Azul, Bs As.</p>
           </div>
           <div className='mt-8'>
             <img className='w-16 m-auto' src={insta} alt="instagram" />
@@ -26,7 +27,7 @@ const Contact = () => {
             </p>
           </div>
         </div>
-        <div className='w-[600px] h-[600px] m-4'>
+        <div className='w-[900px] h-[600px] m-4'>
           <ShowMaps />
         </div>
       </div>

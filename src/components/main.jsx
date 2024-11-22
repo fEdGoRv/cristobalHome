@@ -8,6 +8,7 @@ import Cart from "./cart";
 import { modalActions } from "../store/modalSlice";
 import Footer from "./footer";
 import ItemDetails from "./itemDetails";
+import ScrollToTop from "./scrollToTop";
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ const Main = () => {
     <div
       className={`bg-${path === "/" ? "title-about" : "white"} bg-cover bg-center h-screen text-center`}
     >
+      <ScrollToTop />
       <HeaderProvider>
         <Header />
       </HeaderProvider>

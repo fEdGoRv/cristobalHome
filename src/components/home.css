@@ -12,15 +12,15 @@
 }
 
 .mora-one.active, .mora-two.active, .manuscrita.active, .tendencias.active {
-    animation: fadeInSlide 1s ease forwards; 
+    animation: fadeInSlide 1.5s ease forwards; 
 }
 
 .manuscrita.active {
-    animation: fadeInSlideLeft 1s ease forwards;
+    animation: fadeInSlideLeft 1.5s ease forwards;
 }
 
 .tendencias.active {
-    animation: fadeInSlideUp 1s ease forwards;
+    animation: fadeInSlideUp 1.5s ease forwards;
 }
 
 @keyframes fadeInSlide {

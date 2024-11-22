@@ -27,11 +27,11 @@ const Footer = () => {
         <div className="mt-4">
           <p 
           onClick={()=>handleNavigate("about")}
-          className="cursor-pointer"
+          className="cursor-pointer hover:text-stone-400"
           >Sobre Nosotros</p>
           <p
           onClick={()=>handleNavigate("help")}
-          className="cursor-pointer"
+          className="cursor-pointer hover:text-stone-400"
           >Ayuda</p>
         </div>
       </div>
@@ -42,7 +42,7 @@ const Footer = () => {
         {categories.map(cat => 
           <div key={cat.id}>
               <p
-              className="cursor-pointer " 
+              className="cursor-pointer hover:text-stone-400" 
               onClick={()=>handleNavigate(`categories/${cat.id}`)}
               >{cat.name}</p>
           </div>

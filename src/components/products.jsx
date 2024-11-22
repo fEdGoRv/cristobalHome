@@ -2,6 +2,7 @@ import Card from "./card";
 
 const Products = ({ products }) => {
   return (
+    <div className="min-h-[600px]">
     <div className="flex flex-wrap text-center justify-center">
       {products.map((prod) => {
         return (
@@ -15,6 +16,7 @@ const Products = ({ products }) => {
           />
         );
       })}
+    </div>
     </div>
   );
 };

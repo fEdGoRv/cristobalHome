@@ -5,10 +5,13 @@ import { useHeaderContext } from "../store/HeaderContext";
 
 const DropDownProducts = () => {
   const { 
-    navigate, 
+    navigate,
+    underline, 
     underlineStyle, 
     sectionStyle, 
-    setUnderline } =
+    setUnderline,
+    handlePrincipalPagesClick
+   } =
     useHeaderContext();
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -46,12 +49,20 @@ const DropDownProducts = () => {
   return (
     <ul className="relative p-5 xl:p-8">
       <li
-        className={sectionStyle}
+        className={
+          underline === "products"
+            ? `${sectionStyle} border-b-2 border-morao`
+            : `${sectionStyle}`
+        }
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
         PRODUCTOS
-        <span className={underlineStyle}></span>
+        {underline !== "products" ? (
+                  <span className={underlineStyle}></span>
+                ) : (
+                  ""
+                )}
       </li>
       <div
         onMouseEnter={handleDropdownMouseEnter}
@@ -66,37 +77,55 @@ const DropDownProducts = () => {
 
           <li
             className="m-2 cursor-pointer text-black hover:text-morao"
-            onClick={() => handleSectionClick("carteles")}
+            onClick={() => {
+              handleSectionClick("carteles")
+              handlePrincipalPagesClick("products")
+            }}
           >
             Carteles
           </li>
           <li
             className="m-2 cursor-pointer text-black hover:text-morao"
-            onClick={() => handleSectionClick("accesorios")}
+            onClick={() => {
+              handleSectionClick("accesorios")
+              handlePrincipalPagesClick("products")
+            }}
           >
             Accesorios
           </li>
           <li
             className="m-2 cursor-pointer text-black hover:text-morao"
-            onClick={() => handleSectionClick("pinchos")}
+            onClick={() => {
+              handleSectionClick("pinchos")
+              handlePrincipalPagesClick("products")
+            }}
           >
             Pinchos
           </li>
           <li
             className="m-2 cursor-pointer text-black hover:text-morao"
-            onClick={() => handleSectionClick("moviliario")}
+            onClick={() => {
+              handleSectionClick("moviliario")
+              handlePrincipalPagesClick("products")
+            }}
           >
             Moviliario
           </li>
           <li
             className="m-2 cursor-pointer text-black hover:text-morao"
-            onClick={() => handleSectionClick("fogones")}
+            onClick={() =>{
+              handleSectionClick("fogones")
+              handlePrincipalPagesClick("products")
+            }}
           >
             Fogones
           </li>
           <li
             className="m-2 cursor-pointer text-black hover:text-morao"
-            onClick={() => handleSectionClick("iluminación")}
+            onClick={() => {
+              handleSectionClick("iluminación")
+              handlePrincipalPagesClick("products")
+            }}
           >
             Iluminación
           </li>

@@ -29,17 +29,17 @@ const Main = () => {
       <ScrollToTop />
       <HeaderProvider>
         <Header />
+        <Modal isOpen={isOpen} onClose={onClose}>
+          {cartModal && <Cart />}
+          {detailModal && <ItemDetails />}
+        </Modal>
+        <div>
+          <main>
+            <Outlet />
+          </main>
+        </div>
+        <Footer />
       </HeaderProvider>
-      <Modal isOpen={isOpen} onClose={onClose}>
-        {cartModal && <Cart />}
-        {detailModal && <ItemDetails />}
-      </Modal>
-      <div>
-        <main>
-          <Outlet />
-        </main>
-      </div>
-      <Footer />
     </div>
   );
 };

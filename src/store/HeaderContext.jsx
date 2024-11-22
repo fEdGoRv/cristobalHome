@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
+import { products } from "../util/products";
 
 const HeaderContext = createContext();
 
@@ -17,6 +18,7 @@ export const HeaderProvider = ({ children }) => {
 
   const handlePrincipalPagesClick = (id) => {
     setUnderline(id);
+    if(id === "products") return
     navigate(id);
   };
 

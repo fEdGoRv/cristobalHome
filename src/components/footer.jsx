@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { categories } from "../util/products";
 import Button from "./button";
 import { useRef, useState } from "react";
+import { useHeaderContext } from "../store/HeaderContext";
 
 const Footer = () => {
 
@@ -12,6 +13,10 @@ const Footer = () => {
   const handleNavigate = (path) =>{
      navigate(`/${path}`);
   }
+
+  const {
+    handlePrincipalPagesClick
+  } = useHeaderContext()
 
   const handleSuscription = () => {
     setEmailData(email.current.value);
@@ -26,7 +31,10 @@ const Footer = () => {
         <div className="border-b-2 border-stone-800 m-auto max-w-16"></div>
         <div className="mt-4">
           <p 
-          onClick={()=>handleNavigate("about")}
+          onClick={()=>{
+            handlePrincipalPagesClick("about")
+            handleNavigate("about")}
+          }
           className="cursor-pointer hover:text-stone-400"
           >Sobre Nosotros</p>
           <p
@@ -43,7 +51,10 @@ const Footer = () => {
           <div key={cat.id}>
               <p
               className="cursor-pointer hover:text-stone-400" 
-              onClick={()=>handleNavigate(`categories/${cat.id}`)}
+              onClick={()=>{
+                handleNavigate(`categories/${cat.id}`)
+                handlePrincipalPagesClick("products")
+              }}
               >{cat.name}</p>
           </div>
         )}

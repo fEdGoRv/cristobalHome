@@ -4,6 +4,7 @@ import cart from "../util/icons/icons8-carrito-de-compras-24.png";
 import DropDownProducts from "./dropdownProducts";
 import { useHeaderContext } from "../store/HeaderContext";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
 
@@ -12,7 +13,7 @@ export default function Header() {
   const [fixedPos, setFixedPosition] = useState(false);
 
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
-
+  const navigate = useNavigate();
   const {
     dispatch,
     path,
@@ -31,52 +32,57 @@ export default function Header() {
   const initialPosition = "transform -translate-y-full "
   useEffect(() => {
     const handleScroll = () => {
-      if(window.scrollY > 50){
+      if (window.scrollY > 50) {
         setFloat(true);
-      }else{
+      } else {
         setFloat(false);
       }
     }
 
-    window.addEventListener( 'scroll', handleScroll );
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener( 'scroll', handleScroll );
+      window.removeEventListener('scroll', handleScroll);
     }
   }, [])
-  
 
-  useEffect(()=>{
+
+  useEffect(() => {
     let initialTimer;
-    if(float){
+    if (float) {
       setInitialPos(true);
-      initialTimer = setTimeout(()=>{
+      initialTimer = setTimeout(() => {
         setInitialPos(false);
         setFixedPosition(true)
       }, 300);
-    }else{
+    } else {
       setFixedPosition(false);
       setInitialPos(false);
     }
-    return ()=>{
+    return () => {
       clearTimeout(initialTimer);
     }
-  },[float])
+  }, [float])
 
   return (
-    <header 
-    className={`
+    <header
+      className={`
       ${initialPos ? initialPosition : ""}
-      ${fixedPos ? activePosition: ""}
+      ${fixedPos ? activePosition : ""}
       ${path !== "/" ? "bg-white" : ""}
-      `} 
+      `}
     >
       <div className="container mx-auto flex items-center h-24">
-        <img
-          className="h-16 rounded-full m-0"
-          src="/pinchos/cristobal logo.jpg"
-          alt=""
-        />
+        <button onClick={() =>{
+          navigate("/")
+          handlePrincipalPagesClick("")
+          }}>
+          <img
+            className="h-16 rounded-full m-0"
+            src="/pinchos/cristobal logo.jpg"
+            alt=""
+          />
+        </button>
 
         <nav className="contents mt-24 text-base lg:text-lg">
           <ul className="mx-auto flex items-center">

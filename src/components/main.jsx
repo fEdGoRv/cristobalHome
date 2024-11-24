@@ -1,4 +1,4 @@
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation, useNavigation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { HeaderProvider } from "../store/HeaderContext";
@@ -9,6 +9,7 @@ import { modalActions } from "../store/modalSlice";
 import Footer from "./footer";
 import ItemDetails from "./itemDetails";
 import ScrollToTop from "./scrollToTop";
+import Loader from "./loader";
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,8 @@ const Main = () => {
   const onClose = () => {
     dispatch(modalActions.closeModalHandler());
   };
-
+  const navigation = useNavigation();
+  console.log(navigation.state)
   return (
     <div
       className={`bg-${path === "/" ? "title-about" : "white"} bg-cover bg-center h-screen text-center`}
@@ -29,6 +31,7 @@ const Main = () => {
       <ScrollToTop />
       <HeaderProvider>
         <Header />
+        {navigation.state === "loading" && <div className="grid place-items-center"><Loader /></div>}
         <Modal isOpen={isOpen} onClose={onClose}>
           {cartModal && <Cart />}
           {detailModal && <ItemDetails />}

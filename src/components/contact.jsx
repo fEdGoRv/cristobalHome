@@ -4,10 +4,11 @@ import insta from '../util/icons/instagram.png';
 
 
 const Contact = () => {
+
   return (
     <div className="mt-4">
       <div
-        className='h-48 my-4 bg-cover bg-center items-center font-josefin font-semibold'
+        className='h-48 my-4 bg-cover bg-center grid place-items-center font-josefin font-semibold'
         style={{ backgroundImage: 'url(/pinchos/DSC_2862.jpg)' }}
       >
         <p className='text-6xl text-white '>Contactenos</p>
@@ -28,7 +29,7 @@ const Contact = () => {
           </div>
         </div>
         <div className='w-[900px] h-[600px] m-4'>
-          <ShowMaps />
+           <ShowMaps />
         </div>
       </div>
     </div>

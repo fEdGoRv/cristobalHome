@@ -41,7 +41,7 @@ const SlideCards = () => {
     }, [currentIndex]);
 
     const styleCont = "flex m-auto mt-10 w-auto border-solid border-4 border-grisCard rounded-xl max-w-7xl";
-    console.log(displayingObjects)
+    
     return (
         <div className={styleCont}>
             <div className="w-72 my-4 mx-8 text-left">

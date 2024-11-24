@@ -18,13 +18,13 @@ const ShopMap = () => {
     };
 
     const handleMapLoad = (map) => {
-        new window.google.maps.marker.AdvancedMarkerElement({
+        const data = new window.google.maps.marker.AdvancedMarkerElement({
             position: shopLocation,
             map: map,
             title: 'Shop Location',
         });
     }
-     console.log(`map ID: ${mId}`)
+     
     return (
         <LoadScript
             googleMapsApiKey={apiKey}

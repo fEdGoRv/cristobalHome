@@ -24,24 +24,24 @@ const SlideCards = () => {
     const lastSlice = () => {
         setCurrentIndex((prevIndex) => {
             const lastIndex = prevIndex - cardsPerSlice;
-            return lastIndex <= 0 ? allProd.length : lastIndex;
+            return lastIndex <= 0 ? allProd.length - cardsPerSlice : lastIndex;
         });
     }
 
-    useEffect(() => {
-        const timer = setInterval(() => {
-            nextSlice();
-        }, 5000);
+    // useEffect(() => {
+    //     const timer = setInterval(() => {
+    //         nextSlice();
+    //     }, 5000);
 
-        return () => clearInterval(timer);
-    }, []);
+    //     return () => clearInterval(timer);
+    // }, []);
 
     useEffect(() => {
         setDisplayingObject(allProd.slice(currentIndex, cardsPerSlice + currentIndex));
     }, [currentIndex]);
 
     const styleCont = "flex m-auto mt-10 w-auto border-solid border-4 border-grisCard rounded-xl max-w-7xl";
-
+    console.log(displayingObjects)
     return (
         <div className={styleCont}>
             <div className="w-72 my-4 mx-8 text-left">

@@ -1,6 +1,6 @@
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
-import './shopMaps.css';
+import '../styles/shopMaps.css';
 
 const ShopMap = () => {
 

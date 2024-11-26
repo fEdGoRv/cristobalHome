@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 
-import "./dropdownproducts.css";
+import "../styles/dropdownproducts.css";
 import { useHeaderContext } from "../store/HeaderContext";
 
 const DropDownProducts = () => {

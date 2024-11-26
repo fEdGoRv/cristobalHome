@@ -1,12 +1,12 @@
 .action {
     opacity: 0;
-    transform: translateY(3rem);
+    transform: translateY(6rem);
     transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 .action.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(3rem);
 }
 
 .pointer-events-none {

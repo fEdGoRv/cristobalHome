@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import Button from "./button";
-import "./home.css";
+import "../styles/home.css";
 import { useCallback, useEffect } from "react";
 import HomeCardDisplayer from "./homeCardDisplayer";
 import SlideCards from "./slideCards";

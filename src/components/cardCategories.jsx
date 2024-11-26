@@ -2,8 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import Button from "./button";
-import "./cardCategories.css";
-import ImagesCardCategories from "./cardCategoriesImages/imagesCardCategories";
+import "../styles/imagesCardCategoriesPinchos.css";
+import ImagesCardCategories from "./imagesCardCategories";
 import { cardCategoriesActions } from "../store/cardCategoriesSlice";
 
 const CardCategories = ({ name, image, id: catId, desc }) => {
@@ -24,7 +24,7 @@ const CardCategories = ({ name, image, id: catId, desc }) => {
         <div
           onMouseEnter={() => dispatch(cardCategoriesActions.handleActive(true))}
           onMouseLeave={() => dispatch(cardCategoriesActions.handleActive(false))}
-          className="max-w-md m-4 bg-grisCard justify-center font-playfair shadow-md"
+          className="max-w-md h-72 m-4 bg-grisCard justify-center font-playfair shadow-md"
         >
           <div>
             <p className={`action ${active ? "active" : ""} m-4`}>{desc}</p>

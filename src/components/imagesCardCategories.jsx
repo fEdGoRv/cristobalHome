@@ -65,7 +65,7 @@ const ImagesCardCategories = ({ catId, image }) => {
 
   return (
     <div
-      className="relative m-4 w-64 min-h-52 bg-cover bg-center"
+      className="relative m-4 w-64 h-72 bg-cover bg-center"
       style={{backgroundImage: `url(/pinchos/${image})`}}
     >
       <p

@@ -6,7 +6,7 @@
 
 .action.active {
     opacity: 1;
-    transform: translateY(3rem);
+    transform: translateY(2rem);
 }
 
 .pointer-events-none {

@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import Button from "./button";
-import "../styles/imagesCardCategoriesPinchos.css";
+import "../styles/cardCategories.css";
 import ImagesCardCategories from "./imagesCardCategories";
 import { cardCategoriesActions } from "../store/cardCategoriesSlice";
 

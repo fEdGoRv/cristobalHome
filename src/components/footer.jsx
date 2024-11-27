@@ -25,8 +25,8 @@ const Footer = () => {
     email.current.value = "";
   }
   return (
-    <div className="grid grid-cols-3 mt-16 h-64 bg-morao shadow-lg">
-      <div className="m-4 text-white font-lora">
+    <div className="grid grid-cols-3 h-16 lg:h-64 mt-16 bg-morao shadow-lg">
+      <div className="hidden lg:block m-4 text-white font-lora">
         <p className="mb-4 font-bold">Cristobal Home</p>
         <div className="border-b-2 border-stone-800 m-auto max-w-16"></div>
         <div className="mt-4">
@@ -43,10 +43,10 @@ const Footer = () => {
           >Ayuda</p>
         </div>
       </div>
-      <div className="m-4 text-white font-lora">
+      <div className="hidden lg:block m-4 text-white font-lora">
         <p className="mb-4 font-bold">Categorias</p>
         <div className="border-b-2 border-stone-800 m-auto max-w-16"></div>
-        <div className="mt-4">
+        <div className="mt-4 ">
         {categories.map(cat => 
           <div key={cat.id}>
               <p
@@ -60,7 +60,7 @@ const Footer = () => {
         )}
         </div>
       </div>
-      <div className="m-4 text-white font-lora">
+      <div className="hidden lg:block m-4 text-white font-lora">
         <p className="mb-4 font-bold">Suscribite</p>
         <div className="border-b-2 border-stone-800 m-auto max-w-16"></div>
         <div className="mt-4 flex">

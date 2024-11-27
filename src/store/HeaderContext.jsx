@@ -11,6 +11,7 @@ export const useHeaderContext = () => {
 
 export const HeaderProvider = ({ children }) => {
   const [underline, setUnderline] = useState(null);
+  const [burgerList, setBurgerList] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
@@ -30,12 +31,14 @@ export const HeaderProvider = ({ children }) => {
   const headerCtxValue = {
     underline,
     setUnderline,
+    setBurgerList,
     navigate,
     dispatch,
     path,
     handlePrincipalPagesClick,
     underlineStyle,
     sectionStyle,
+    burgerList
   };
 
   return (

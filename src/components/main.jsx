@@ -23,7 +23,6 @@ const Main = () => {
     dispatch(modalActions.closeModalHandler());
   };
   const navigation = useNavigation();
-  console.log(navigation.state)
   return (
     <div
       className={`bg-${path === "/" ? "title-about" : "white"} bg-cover bg-center h-screen text-center`}

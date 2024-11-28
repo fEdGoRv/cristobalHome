@@ -36,7 +36,10 @@ const Home = () => {
   
   return (
     <>
-      <div className="realative h-screen w-full">
+      <div 
+      className="hidden lg:block realative text-center lg:h-screen w-full bg-cover bg-center"
+      style={{backgroundImage: 'url(/pinchos/DSC_2861.jpg)'}}
+      >
         <div>
           <h1 className="mora-one absolute top-52 inset-x-2/3 text-8xl text-morao font-bold font-josefin">
             RENOVÁ
@@ -70,7 +73,7 @@ const Home = () => {
           VER MÁS
         </Button>
       </div>
-      <div>
+      <div className="hidden lg:block">
         <SlideCards />
       </div>
     </>

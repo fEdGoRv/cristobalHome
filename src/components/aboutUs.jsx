@@ -52,13 +52,13 @@ const AboutUs = () => {
             </p>
           </div>
         </div>
-        <div className="w-2/12 m-12">
+        <div className="hidden lg:block w-2/12 m-12">
           <img src="/pinchos/DSC_2895.jpg" alt="lechu" />
         </div>
       </div>
       <div className="flex bg-cover h-64 bg-design-detail bg-center grid place-items-center text-center text-white">
         <div>
-          <h1 className="text-6xl m-8 font-bold font-playfair">
+          <h1 className="text-2xl lg:text-6xl m-8 font-bold font-playfair">
             DISEÑO Y DECORACION
           </h1>
           <p className="font-playfair">
@@ -66,7 +66,7 @@ const AboutUs = () => {
           </p>
         </div>
       </div>
-      <div className="flex justify-center my-16">
+      <div className="block justify-center lg:flex my-16">
         {cardData.map(card => 
         <div key={card.title}>
           <CardAbout

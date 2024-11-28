@@ -3,7 +3,7 @@ import { categories } from "../util/products";
 
 const HomeCardDisplayer = () => {
   return (
-    <div className="grid grid-cols-3 grid-rows-3 gap-4" style={{gridAutoRows: '300px'}}>
+    <div className="lg:grid lg:grid-cols-3 lg:grid-rows-3 lg:gap-4" style={{gridAutoRows: '300px'}}>
       {categories.map((cat) => (
         <div key={cat.id} className={`relative row-span-${cat.rowSpan}` }>
           <CardCategories

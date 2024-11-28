@@ -14,7 +14,7 @@ const BurgerList = () => {
     }
 
     return (
-    <ul className="absolute bg-grisCard w-64 border-2 border-morao m-2">
+    <ul className="absolute text-center bg-grisCard w-64 border-2 border-morao m-2">
         <li 
         className={sectionStyle}
         onClick={() => handlerAction("")}

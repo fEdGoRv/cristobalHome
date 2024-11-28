@@ -72,12 +72,12 @@ export default function Header() {
 
   return (
     <>
-      <div className="block md:hidden relative flex justify-between items-center">
-        <img 
-        className="hover:cursor-pointer mt-4 w-12"
-        onClick={ () => setBurgerList(prevState => !prevState) } 
-        src={burger} 
-        alt="burger" 
+      <div className={`block md:hidden relative flex justify-between items-center`}>
+        <img
+          className="hover:cursor-pointer mt-4 w-12"
+          onClick={() => setBurgerList(prevState => !prevState)}
+          src={burger}
+          alt="burger"
         />
         <div onClick={openModal}>
           <span className="flex text-black px-2 pt-2">

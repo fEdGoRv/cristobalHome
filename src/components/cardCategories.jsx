@@ -24,7 +24,7 @@ const CardCategories = ({ name, image, id: catId, desc }) => {
         <div
           onMouseEnter={() => dispatch(cardCategoriesActions.handleActive(true))}
           onMouseLeave={() => dispatch(cardCategoriesActions.handleActive(false))}
-          className="max-w-md h-72 m-4 bg-grisCard justify-center font-playfair shadow-md"
+          className="max-w-md h-72 m-4 bg-grisCard justify-center text-center font-playfair shadow-md"
         >
           <div>
             <p className={`action ${active ? "active" : ""} m-4`}>{desc}</p>

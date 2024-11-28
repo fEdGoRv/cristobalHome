@@ -25,7 +25,7 @@ const Main = () => {
   const navigation = useNavigation();
   return (
     <div
-      //className={`bg-${path === "/" ? "title-about" : "white"} bg-cover bg-center h-screen text-center`}
+      //className={`bg-${path === "/" ? "title-about" : "white"} bg-cover bg-center h-screen`}
     >
       <ScrollToTop />
       <HeaderProvider>

@@ -1,4 +1,4 @@
-import { useHeaderContext } from "../store/HeaderContext";
+import { useHeaderContext } from "../../store/HeaderContext";
 
 const BurgerList = () => {
 

@@ -1,15 +1,15 @@
 import { Outlet, useLocation, useNavigation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { HeaderProvider } from "../store/HeaderContext";
+import { HeaderProvider } from "../../store/HeaderContext";
 import Header from "./header";
-import Modal from "./modal";
-import Cart from "./cart";
-import { modalActions } from "../store/modalSlice";
+import Modal from "../modal";
+import Cart from "../cart";
+import { modalActions } from "../../store/modalSlice";
 import Footer from "./footer";
-import ItemDetails from "./itemDetails";
-import ScrollToTop from "./scrollToTop";
-import Loader from "./loader";
+import ItemDetails from "../itemDetails";
+import ScrollToTop from "../scrollToTop";
+import Loader from "../loader";
 
 const Main = () => {
   const dispatch = useDispatch();

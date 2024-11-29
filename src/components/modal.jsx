@@ -1,4 +1,4 @@
-import Button from "./button";
+import Button from "./generals/button";
 import cancel from "../util/icons/modalCancel.png";
 import { useSelector } from "react-redux";
 

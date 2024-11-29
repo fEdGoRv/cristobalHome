@@ -1,4 +1,4 @@
-import CardAbout from "./cardAbout";
+import CardAbout from "../cardAbout";
 
 const cardData = [
   {

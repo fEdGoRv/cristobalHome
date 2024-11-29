@@ -2,18 +2,18 @@ import { RouterProvider } from 'react-router-dom';
 import {createBrowserRouter} from 'react-router-dom'
 import React, { Suspense } from 'react';
 
-import Home from './components/home';
-import Main from './components/main';
-import ProductsFilter from './components/productFilter';
-import AboutUs from './components/aboutUs';
-import Contact from './components/contact';
-import Help from './components/help';
-import DetailProdPage from './components/detailProdPage';
-import ErrorDisplayer from './components/error';
+import Home from './components/pages/home';
+import Main from './components/layout/main';
+import ProductsFilter from './components/product/productFilter';
+import AboutUs from './components/pages/aboutUs';
+import Contact from './components/pages/contact';
+import Help from './components/pages/help';
+import DetailProdPage from './components/pages/detailProdPage';
+import ErrorDisplayer from './components/pages/error';
 import Loader from './components/loader';
 
 
-const Shop = React.lazy(() => import('./components/shop'));
+const Shop = React.lazy(() => import('./components/product/shop'));
 
 
 const router = createBrowserRouter([

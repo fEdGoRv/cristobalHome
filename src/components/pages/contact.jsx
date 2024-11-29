@@ -1,6 +1,6 @@
-import ShowMaps from './showMaps';
-import loc from '../util/icons/location.svg';
-import insta from '../util/icons/instagram.png';
+import ShowMaps from '../showMaps';
+import loc from '../../util/icons/location.svg';
+import insta from '../../util/icons/instagram.png';
 
 
 const Contact = () => {

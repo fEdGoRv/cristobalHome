@@ -1,4 +1,4 @@
-import Card from "./card";
+import Card from "../generals/card";
 
 const Products = ({ products }) => {
   return (

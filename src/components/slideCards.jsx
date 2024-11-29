@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { allProd } from "../util/products";
-import Card from './card';
-import Button from "./button";
+import Card from './generals/card';
+import Button from "./generals/button";
 import left from "../util/icons/arrowLeft.svg";
 import right from "../util/icons/arrowRight.svg";
 import { useDispatch } from "react-redux";

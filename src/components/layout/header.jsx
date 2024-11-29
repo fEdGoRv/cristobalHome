@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
-import { modalActions } from "../store/modalSlice";
-import cart from "../util/icons/icons8-carrito-de-compras-24.png";
-import DropDownProducts from "./dropdownProducts";
-import { useHeaderContext } from "../store/HeaderContext";
+import { modalActions } from "../../store/modalSlice";
+import cart from "../../util/icons/icons8-carrito-de-compras-24.png";
+import DropDownProducts from "../product/dropdownProducts";
+import { useHeaderContext } from "../../store/HeaderContext";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import burger from "../util/icons/burger.svg"
+import burger from "../../util/icons/burger.svg"
 import BurgerList from "./burgerList";
 
 export default function Header() {

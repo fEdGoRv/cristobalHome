@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 
-import "../styles/dropdownproducts.css";
-import { useHeaderContext } from "../store/HeaderContext";
+import "../../styles/dropdownproducts.css";
+import { useHeaderContext } from "../../store/HeaderContext";
 
 const DropDownProducts = () => {
   const { 

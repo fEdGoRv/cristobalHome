@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { categories } from "../util/products";
-import Button from "./button";
+import { categories } from "../../util/products";
+import Button from "../generals/button";
 import { useRef, useState } from "react";
-import { useHeaderContext } from "../store/HeaderContext";
+import { useHeaderContext } from "../../store/HeaderContext";
 
 const Footer = () => {
 

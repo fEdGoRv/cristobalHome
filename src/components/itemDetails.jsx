@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
-import Button from "./button";
+import Button from "./generals/button";
 import { cartActions } from "../store/cartSlice";
 import { modalActions } from "../store/modalSlice";
 

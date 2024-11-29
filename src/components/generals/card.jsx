@@ -2,12 +2,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom"
  
-import lupa from '../util/icons/lupa.svg'
-import Button from "./button";
-import { cartActions } from "../store/cartSlice";
-import { cardCategoriesActions } from "../store/cardCategoriesSlice";
-import buble from "../util/icons/buble.svg"
-import { modalActions } from "../store/modalSlice";
+import lupa from '../../util/icons/lupa.svg'
+import Button from "../generals/button";
+import { cartActions } from "../../store/cartSlice";
+import { cardCategoriesActions } from "../../store/cardCategoriesSlice";
+import buble from "../../util/icons/buble.svg"
+import { modalActions } from "../../store/modalSlice";
 
 
 const Card = ({ name, image, price, id: prodId }) => {

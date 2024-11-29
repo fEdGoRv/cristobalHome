@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
-import { allProd } from "../util/products"
-import Button from "./button";
+import { allProd } from "../../util/products"
+import Button from "../generals/button";
 import { useDispatch } from "react-redux";
-import { cartActions } from "../store/cartSlice";
+import { cartActions } from "../../store/cartSlice";
 
 
 const DetailProdPage = () => {

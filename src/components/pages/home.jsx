@@ -1,9 +1,9 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import Button from "./button";
-import "../styles/home.css";
+import Button from "../generals/button";
+import "../../styles/home.css";
 import { useCallback, useEffect } from "react";
-import HomeCardDisplayer from "./homeCardDisplayer";
-import SlideCards from "./slideCards";
+import HomeCardDisplayer from "../homeCardDisplayer";
+import SlideCards from "../slideCards";
 
 
 const Home = () => {

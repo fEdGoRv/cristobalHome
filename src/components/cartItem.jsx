@@ -1,6 +1,6 @@
 import plusIcon from "../util/icons/suma.png";
 import lessIcon from "../util/icons/resta.png";
-import Button from "./button";
+import Button from "./generals/button";
 import { cartActions } from "../store/cartSlice";
 import { useDispatch } from "react-redux";
 

@@ -1,4 +1,4 @@
-import HomeCardDisplayer from "./homeCardDisplayer";
+import HomeCardDisplayer from "../homeCardDisplayer";
 
 const Shop = () => {
   return <div className="grid place-items-center m-12">

@@ -6,15 +6,15 @@ import insta from '../util/icons/instagram.png';
 const Contact = () => {
 
   return (
-    <div className="mt-4">
+    <div className="mt-4 text-center">
       <div
         className='h-48 my-4 bg-cover bg-center grid place-items-center font-josefin font-semibold'
         style={{ backgroundImage: 'url(/pinchos/DSC_2862.jpg)' }}
       >
         <p className='text-6xl text-white '>Contactenos</p>
       </div>
-      <div className='flex justify-center'>
-        <div className='w-72 mt-16'>
+      <div className='block md:flex justify-center'>
+        <div className='mx-auto md:m-0 w-72 mt-16'>
           <div className='font-josefin'>
             <img className="w-24 m-auto" src={loc} alt="location" />
             <p className='font-bold text-2xl mt-4'>DIRECCIÓN</p>

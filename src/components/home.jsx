@@ -37,11 +37,11 @@ const Home = () => {
   return (
     <>
       <div
-      className="block lg:hidden flex h-64 text-2xl font-bold font-josefin text-center bg-cover bg-center"
+      className="block lg:hidden flex h-64 text-2xl text-center bg-cover bg-center"
       style={{backgroundImage: 'url(/pinchos/DSC_2861.jpg)'}} 
       >
-        <p className="pl-4 pt-12 text-morao ">RENOVÁ</p>
-        <p className="pt-16 font-lobster text-black">tú jardín</p>
+        <p className="pl-4 pt-12 text-morao font-bold font-josefin ">RENOVÁ</p>
+        <p className="pt-16 font-lobster font-bold text-black">tú jardín</p>
       </div>
       <div 
       className="hidden lg:block realative text-center lg:h-screen w-full bg-cover bg-center"

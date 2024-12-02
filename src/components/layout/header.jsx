@@ -163,11 +163,16 @@ export default function Header() {
               </li>
             </ul>
           </nav>
-          <div onClick={openModal}>
-            <span className="flex text-black">
-              <div className="pr-2">{totalQuantity > 0 && totalQuantity}</div>
-              <img src={cart} className="hover:cursor-pointer" alt="cart/logo" />
-            </span>
+          <div 
+          onClick={openModal}
+          className="relative"
+          >
+            {totalQuantity > 0 && <span
+              className="absolute top-[-10px] right-[-10px] bg-morao text-white text-xs rounded-full h-5 w-5 flex items-center justify-center"
+            >
+              {totalQuantity}
+            </span>}
+            <img src={cart} className="hover:cursor-pointer" alt="cart/logo" />
           </div>
         </div>
       </header>

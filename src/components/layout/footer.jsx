@@ -25,7 +25,7 @@ const Footer = () => {
     email.current.value = "";
   }
   return (
-    <div className="grid grid-cols-3 h-16 lg:h-64 mt-16 bg-morao shadow-lg">
+    <div className="grid grid-cols-3 place-items-center h-16 lg:h-64 mt-16 bg-morao shadow-lg">
       <div className="hidden lg:block m-4 text-white font-lora">
         <p className="mb-4 font-bold">Cristobal Home</p>
         <div className="border-b-2 border-stone-800 max-w-16"></div>

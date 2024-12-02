@@ -70,7 +70,7 @@ const SlideCards = () => {
                 </div>
                 <div className="flex justify-center ">
                 {displayingObjects.map(prod =>
-                    <div key={prod.id} className="m-4 ">
+                    <div key={prod.id} className="m-4 text-center">
                         <Card
                             id={prod.id}
                             name={prod.name}

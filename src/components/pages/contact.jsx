@@ -22,9 +22,13 @@ const Contact = () => {
             <p className='text-2xl text-morao font-semibold '>Azul, Bs As.</p>
           </div>
           <div className='mt-8'>
-          <link >
+          <a 
+          href="https://www.instagram.com/cristobalhomegarden"
+          target="_blank"
+          rel="noopener noreferrer"
+          >
             <img className='w-16 m-auto' src={insta} alt="instagram" />
-          </link>
+          </a>
             <p className='text-2xl text-morao font-josefin font-semibold p-4'>
               @cristobalhomegarden
             </p>

@@ -1,6 +1,15 @@
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import {
+    APIProvider,
+    Map,
+    AdvancedMarker,
+    Pin,
+    InfoWindow
+} from "@vis.gl/react-google-maps";
+import { useState } from 'react';
+
 
 function ShowMaps(){
+    const [open, setOpen] = useState(false)
 
     const apiKey = "AIzaSyDDbD1guhdRrBjUi5wZVikIdxlAE0r0w24";
     const mId = "35b2c09b1ac9371c"
@@ -15,39 +24,35 @@ function ShowMaps(){
         lng: -59.87014115718526,
     };
 
-    const handleMapLoad = (map) => {
-        console.log(`Google Maps API Version: ${google.maps.version}`);
-        
-        if (google?.maps?.marker?.AdvancedMarkerElement) {
-            const advancedMarker = new google.maps.marker.AdvancedMarkerElement({
-                map,
-                position: shopLocation,
-                title: 'Shop Location',
-            });
-        } else {
-            console.error('AdvancedMarkerElement is not available.');
-        }
-    };
-
-    
-
-
-    return (
-        <LoadScript
-        googleMapsApiKey={apiKey}
-        //libraries={['places']}
-        version='beta'
-        >
-            <GoogleMap
-                mapContainerStyle={mapContainerStyle}
-                center={shopLocation}
+    return(
+        <APIProvider apiKey={apiKey}>
+            <div style={mapContainerStyle}>
+                <Map
                 zoom={16}
+                center={shopLocation}
                 mapId={mId}
-                onLoad={handleMapLoad}
-            >
-                <Marker position={shopLocation} />
-            </GoogleMap>
-        </LoadScript>
+                >
+                  <AdvancedMarker
+                   position={shopLocation}
+                   onClick={()=>setOpen(true)}
+                   >
+                    <Pin
+                    background={"peru"}
+                    borderColor={"green"}
+                    glyphColor={"black"} 
+                    />
+                  </AdvancedMarker>
+
+                  {open && <InfoWindow 
+                  position={shopLocation}
+                  onClick={()=>setOpen(false)}
+                  >
+                    Cristobal Home
+                    </InfoWindow>}
+
+                </Map>
+            </div>
+        </APIProvider>
     );
 };
 

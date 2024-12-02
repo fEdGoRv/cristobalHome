@@ -1,6 +1,6 @@
 const CardAbout = ({title, description, image}) => {
     return (
-        <div className="m-4 max-w-sm m-4 bg-grisCard text-morao shadow-md overflow-hidden">
+        <div className="max-w-sm m-auto lg:m-4 bg-grisCard text-morao shadow-md overflow-hidden">
       <img
         className="w-full h-96 object-cover"
         src={`/pinchos/${image}`}

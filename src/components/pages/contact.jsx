@@ -14,8 +14,8 @@ const Contact = () => {
         <p className='text-6xl text-white '>Contactenos</p>
       </div>
       <div className='block md:flex justify-center'>
-        <div className='mx-auto md:m-0 w-72 mt-16'>
-          <div className='font-josefin'>
+        <div className='mx-auto md:m-0 w-72'>
+          <div className='font-josefin mt-20'>
             <img className="w-24 m-auto" src={loc} alt="location" />
             <p className='font-bold text-2xl mt-4'>DIRECCIÓN</p>
             <p className='text-2xl text-morao font-semibold '>Colon 1004</p>

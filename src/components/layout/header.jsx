@@ -66,9 +66,7 @@ export default function Header() {
     return () => {
       clearTimeout(initialTimer);
     }
-  }, [float])
-
-  console.log(burgerList)
+  }, [float]);
 
   return (
     <>

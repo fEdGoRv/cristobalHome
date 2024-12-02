@@ -22,7 +22,7 @@ const cardData = [
 const AboutUs = () => {
   return (
     <div className="mt-24">
-      <div className="flex justify-center items-center h-44 w-full text-white text-6xl font-playfair font-bold bg-cover bg-center bg-title-about">
+      <div className="flex justify-center items-center h-44 w-full text-stone-800 sm:text-white text-6xl font-playfair font-bold bg-cover bg-center bg-title-about">
         <h1>Christobal Home</h1>
       </div>
       <div className="flex justify-center m-4">
@@ -66,7 +66,7 @@ const AboutUs = () => {
           </p>
         </div>
       </div>
-      <div className="block justify-center lg:flex my-16">
+      <div className="block text-center justify-center lg:flex my-16">
         {cardData.map(card => 
         <div key={card.title}>
           <CardAbout

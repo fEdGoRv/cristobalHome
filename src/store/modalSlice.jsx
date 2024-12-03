@@ -5,6 +5,7 @@ const iS = {
   isOpen: false, 
   cartModal: false, 
   detailModal: false,
+  formModal: false,
   product: {},
   position: {
     x: "",
@@ -41,6 +42,7 @@ const modalSlice = createSlice({
       state.isOpen = false;
       state.detailModal = false;
       state.cartModal = false;
+      state.formModal = false;
       state.animation = false;
       state.position = {
         x: "",
@@ -63,6 +65,10 @@ const modalSlice = createSlice({
     handleAnimation(state, action){
       action.payload.animation !== undefined ? state.animation = action.payload.animation : state.animation;
       action.payload.secPos !== undefined ? state.newPosition = action.payload.secPos : state.newPosition;
+    },
+    handleFormModalHandler(state){
+      state.formModal = true;
+      state.cartModal = false;
     }
   },
 });

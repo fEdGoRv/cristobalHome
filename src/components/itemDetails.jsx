@@ -84,7 +84,7 @@ const ItemDetails = () => {
   };
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center items-center">
       <div 
       className={`${animation ? activeImg : initialPosImg} transform transition-all duration-700`}
       style={{

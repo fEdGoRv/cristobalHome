@@ -1,14 +1,20 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import CartItem from "./cartItem";
+import Button from "./generals/button";
+import { modalActions } from "../store/modalSlice";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart.items);
   const totalAmount = cart.reduce((acc, item) => acc + item.totalPrice, 0);
+  const dispatch = useDispatch();
+  const handleConfirmation = () => {
+     dispatch(modalActions.handleFormModalHandler());
+  }
 
   return (
     <div className="text-center">
-      <h1 className="text-2xl text-center text-morao bg-stone-800">
+      <h1 className="text-2xl text-center text-morao bg-grisCard">
         Tu carrito
       </h1>
       <ul>
@@ -29,8 +35,15 @@ const Cart = () => {
           );
         })}
       </ul>
-      <div className="text-xl text-morao bg-stone-800">
+      <div className="flex items-center">
+        <div>
+           <Button onClick={handleConfirmation}>
+            CONFIRMAR COMPRA
+           </Button>
+        </div>
+      <div className="text-2xl p-2 w-full m-auto text-morao bg-grisCard">
         Monto Total: {totalAmount}
+      </div>
       </div>
     </div>
   );

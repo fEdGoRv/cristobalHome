@@ -20,11 +20,16 @@ const CardCategories = ({ name, image, id: catId, desc }) => {
       onMouseOver={() => dispatch(cardCategoriesActions.handleAnimation(catId))}
       onMouseLeave={() => dispatch(cardCategoriesActions.handleAnimation(""))}
     >
-      {animation === catId ? (
+      <div className={`${animation === catId && "opacity-50"}`}>
+      <ImagesCardCategories catId={catId} image={image} />
+      </div>
+      {animation === catId &&
         <div
           onMouseEnter={() => dispatch(cardCategoriesActions.handleActive(true))}
           onMouseLeave={() => dispatch(cardCategoriesActions.handleActive(false))}
-          className="max-w-md h-72 m-4 bg-grisCard justify-center text-center font-playfair shadow-md"
+          className={`absolute inset-0 flex flex-col text-center justify-center items-center bg-grisCard bg-opacity-50 text-black transition-opacity duration-300 ${
+            active ? "opacity-100" : "opacity-0"
+          }`}
         >
           <div>
             <p className={`action ${active ? "active" : ""} m-4`}>{desc}</p>
@@ -35,9 +40,7 @@ const CardCategories = ({ name, image, id: catId, desc }) => {
             </Button>
           </div>
         </div>
-      ) : (
-        <ImagesCardCategories catId={catId} image={image} />
-      )}
+        }
     </div>
   );
 };

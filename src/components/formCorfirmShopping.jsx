@@ -1,12 +1,14 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useRef, useState } from 'react';
 
 import Button from './generals/button'
+import { cartActions } from '../store/cartSlice';
 
 const FormConfirm = () => {
 
     const [data, setData] = useState({});
     const cart = useSelector(state => state.cart.items)
+    const dispatch = useDispatch();
 
     const name = useRef();
     const movil = useRef();
@@ -16,18 +18,29 @@ const FormConfirm = () => {
     const email = useRef();
 
     const handleData = () => {
-        setData({
+        const formData = {
             customer:{
-                name: name.current.name,
-                movil: movil.current.movil,
-                city: city.current.city,
-                adress: adress.current.adress,
-                postCode: postCode.current.postCode,
-                email: email.current.email
+                name: name.current.value,
+                movil: movil.current.value,
+                city: city.current.value,
+                adress: adress.current.value,
+                postCode: postCode.current.value,
+                email: email.current.value
             },
             items: cart
-        }),
-        console.log(data)
+        };
+
+        setData(formData);
+        console.log(formData);
+    }
+
+    const clearForm = () => {
+        name.current.value = "";
+        movil.current.value = "";
+        city.current.value = "";
+        adress.current.value = "";
+        postCode.current.value = "";
+        email.current.value = "";
     }
 
     const inputClass="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
@@ -37,7 +50,15 @@ const FormConfirm = () => {
             <h2 className="font-bold text-xl text-gray-800 text-center mb-4">
                 TU PEDIDO CASI ESTA LISTO. PARA COMPLETARLO, INGRESA TUS DATOS y ENVIALO!
             </h2>
-            <form className='space-y-4'>
+            <form 
+            className='space-y-4'
+            onSubmit={(e) => {
+                e.preventDefault(); 
+                handleData();
+                clearForm();
+                dispatch(cartActions.clearCart()); 
+            }}
+            >
                 <div>
                     <label 
                     htmlFor="name"
@@ -117,9 +138,7 @@ const FormConfirm = () => {
                     />
                 </div>
                 <div className='flex items-center justify-center h-24 w-full '>
-                <Button 
-                onClick={handleData}
-                classes="cardButton">ENVIAR PEDIDO</Button>
+                <Button classes="cardButton">ENVIAR PEDIDO</Button>
                 </div>
             </form>
         </div>

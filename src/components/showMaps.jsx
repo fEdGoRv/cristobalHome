@@ -23,7 +23,7 @@ function ShowMaps(){
         lat: -36.78234841353206,
         lng: -59.87014115718526,
     };
-    console.log(open)
+
     return(
         <APIProvider apiKey={apiKey}>
             <div style={mapContainerStyle}>

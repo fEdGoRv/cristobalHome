@@ -9,7 +9,7 @@ const Cart = () => {
   const totalAmount = cart.reduce((acc, item) => acc + item.totalPrice, 0);
   const dispatch = useDispatch();
   const handleConfirmation = () => {
-     dispatch(modalActions.handleFormModalHandler());
+    dispatch(modalActions.handleFormModalHandler());
   }
 
   return (
@@ -35,16 +35,12 @@ const Cart = () => {
           );
         })}
       </ul>
-      <div className="flex items-center">
-        <div>
-           <Button onClick={handleConfirmation}>
-            CONFIRMAR COMPRA
-           </Button>
-        </div>
       <div className="text-2xl p-2 w-full m-auto text-morao bg-grisCard">
         Monto Total: {totalAmount}
       </div>
-      </div>
+      <Button onClick={handleConfirmation}>
+        CONFIRMA PEDIDO
+      </Button>
     </div>
   );
 };

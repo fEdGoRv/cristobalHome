@@ -11,6 +11,7 @@ import ItemDetails from "../itemDetails";
 import ScrollToTop from "../scrollToTop";
 import Loader from "../loader";
 import FormConfirm from "../formCorfirmShopping";
+import Toastify from "../generals/toastify";
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ const Main = () => {
   const cartModal = useSelector(state => state.modal.cartModal);
   const detailModal = useSelector(state => state.modal.detailModal);
   const formModal = useSelector(state => state.modal.formModal);
+  const toastifyState = useSelector(state => state.toastify.toast)
   const location = useLocation();
   let path = location.pathname;
 
@@ -25,6 +27,7 @@ const Main = () => {
     dispatch(modalActions.closeModalHandler());
   };
   const navigation = useNavigation();
+  console.log(toastifyState)
   return (
     <div
       //className={`bg-${path === "/" ? "title-about" : "white"} bg-cover bg-center h-screen`}
@@ -33,6 +36,7 @@ const Main = () => {
       <HeaderProvider>
         <Header />
         {navigation.state === "loading" && <div className="grid place-items-center"><Loader /></div>}
+        {toastifyState !== "" && toastifyState !== undefined && <Toastify type={toastifyState} />}
         <Modal isOpen={isOpen} onClose={onClose}>
           {cartModal && <Cart />}
           {detailModal && <ItemDetails />}

@@ -8,6 +8,7 @@ import { cartActions } from "../../store/cartSlice";
 import { cardCategoriesActions } from "../../store/cardCategoriesSlice";
 import buble from "../../util/icons/buble.svg"
 import { modalActions } from "../../store/modalSlice";
+import { toastifyActions } from "../../store/toastifySlice";
 
 
 const Card = ({ name, image, price, id: prodId }) => {
@@ -22,8 +23,9 @@ const Card = ({ name, image, price, id: prodId }) => {
         image,
         price,
         id: prodId,
-      }),
+      })
     );
+    dispatch(toastifyActions.handleDisplayToastify("addItemToCart"));
   }, [dispatch, name, image, price, prodId]);
 
   const showDetails = useCallback((event) => {

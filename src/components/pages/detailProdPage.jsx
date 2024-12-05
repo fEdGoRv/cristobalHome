@@ -3,6 +3,7 @@ import { allProd } from "../../util/products"
 import Button from "../generals/button";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cartSlice";
+import { toastifyActions } from "../../store/toastifySlice";
 
 
 const DetailProdPage = () => {
@@ -17,6 +18,7 @@ const DetailProdPage = () => {
          price: prod.price,
          image: prod.image
        }));
+       dispatch(toastifyActions.handleDisplayToastify("addItemToCart"));
     }
 
     return (

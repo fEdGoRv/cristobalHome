@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useRef, useState } from 'react';
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
 import Button from './generals/button'
 import { cartActions } from '../store/cartSlice';
@@ -8,145 +9,154 @@ import { modalActions } from '../store/modalSlice';
 
 const FormConfirm = () => {
 
-    const [data, setData] = useState({});
-    const cart = useSelector(state => state.cart.items)
+    const cart = useSelector(state => state.cart.items);
     const dispatch = useDispatch();
 
-    const name = useRef();
-    const movil = useRef();
-    const city = useRef();
-    const adress = useRef();
-    const postCode = useRef()
-    const email = useRef();
+    const inputClass = "w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400";
 
-    const handleData = () => {
+    const validationSchema = Yup.object({
+        name: Yup.string()
+            .required("Este campo es obligatorio.")
+            .min(3, "El nombre debe tener al menos 3 caracteres."),
+        movil: Yup.string()
+            .required("Este campo es obligatorio.")
+            .matches(/^\d{10,}$/, "El numero de telefono debe tener 10 digitos."),
+        city: Yup.string().required("Este campo es obligatorio."),
+        adress: Yup.string().required("Este campo es obligatotio."),
+        postCode: Yup.string()
+            .required("Este campo es obligatotio.")
+            .matches(/^\d+$/, "El codigo postal debe ser un numero."),
+        email: Yup.string()
+            .required("Este campo es obligatotio.")
+            .email("Dirección de email incorrecta."),
+    });
+
+    const initialValues = {
+        name: "",
+        movil: "",
+        city: "",
+        adress: "",
+        postCode: "",
+        email: "",
+    };
+
+    const handleSubmit = (values, { resetForm }) => {
         const formData = {
-            customer: {
-                name: name.current.value,
-                movil: movil.current.value,
-                city: city.current.value,
-                adress: adress.current.value,
-                postCode: postCode.current.value,
-                email: email.current.value
-            },
-            items: cart
+            customer: values,
+            items: cart,
         };
-
-        setData(formData);
         console.log(formData);
-    }
-
-    const clearForm = () => {
-        name.current.value = "";
-        movil.current.value = "";
-        city.current.value = "";
-        adress.current.value = "";
-        postCode.current.value = "";
-        email.current.value = "";
-    }
-
-    const inputClass = "w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
-
+        resetForm();
+        dispatch(cartActions.clearCart());
+        dispatch(toastifyActions.handleDisplayToastify("orderSend"));
+        dispatch(modalActions.closeModalHandler());
+    };
     return (
         <div className="font-josefin px-6 py-4 bg-white rounded-md shadow-md max-w-xl mx-auto">
             <h2 className="font-bold text-xl text-gray-800 text-center mb-4">
                 TU PEDIDO CASI ESTA LISTO. PARA COMPLETARLO, INGRESA TUS DATOS y ENVIALO!
             </h2>
-            <form
-                className='space-y-4'
-                onSubmit={(e) => {
-                    e.preventDefault();
-                    handleData();
-                    clearForm();
-                    dispatch(cartActions.clearCart());
-                    dispatch(toastifyActions.handleDisplayToastify("orderSend"));
-                    dispatch(modalActions.closeModalHandler());
-                }}
+
+            <Formik
+                initialValues={initialValues}
+                validationSchema={validationSchema}
+                onSubmit={handleSubmit}
             >
-                <div>
-                    <label
-                        htmlFor="name"
-                        className="block text-sm font-medium text-gray-700 mb-1"
-                    >Nombre y Apellido</label>
-                    <input
-                        id="name"
-                        type="text"
-                        ref={name}
-                        required
-                        className={inputClass}
-                    />
-                </div>
-                <div>
-                    <label
-                        htmlFor="movil"
-                        className="block text-sm font-medium text-gray-700 mb-1"
-                    >Telefono</label>
-                    <input
-                        id="movil"
-                        type="number"
-                        ref={movil}
-                        required
-                        className={inputClass}
-                    />
-                </div>
-                <div>
-                    <label
-                        htmlFor="city"
-                        className="block text-sm font-medium text-gray-700 mb-1"
-                    >Ciudad</label>
-                    <input
-                        id="city"
-                        type="text"
-                        ref={city}
-                        required
-                        className={inputClass}
-                    />
-                </div>
-                <div>
-                    <label
-                        htmlFor="adress"
-                        className="block text-sm font-medium text-gray-700 mb-1"
-                    >Dirección</label>
-                    <input
-                        id="adress"
-                        type="text"
-                        ref={adress}
-                        required
-                        className={inputClass}
-                    />
-                </div>
-                <div>
-                    <label
-                        htmlFor="postCode"
-                        className="block text-sm font-medium text-gray-700 mb-1"
-                    >Codigo Postal</label>
-                    <input
-                        id="postCode"
-                        type="number"
-                        ref={postCode}
-                        required
-                        className={inputClass}
-                    />
-                </div>
-                <div>
-                    <label
-                        htmlFor="email"
-                        className="block text-sm font-medium text-gray-700 mb-1"
-                    >Email</label>
-                    <input
-                        id="email"
-                        type="text"
-                        ref={email}
-                        required
-                        className={inputClass}
-                    />
-                </div>
-                <div className='flex items-center justify-center h-24 w-full '>
-                    <Button classes="cardButton">ENVIAR PEDIDO</Button>
-                </div>
-            </form>
+                {() => (
+                    <Form className="space-y-4">
+                        {/* Name Field */}
+                        <div>
+                            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                                Nombre y Apellido
+                            </label>
+                            <Field
+                                id="name"
+                                name="name"
+                                type="text"
+                                className={inputClass}
+                            />
+                            <ErrorMessage name="name" component="p" className="text-red-500 text-sm" />
+                        </div>
+
+                        {/* Phone Field */}
+                        <div>
+                            <label htmlFor="movil" className="block text-sm font-medium text-gray-700 mb-1">
+                                Teléfono
+                            </label>
+                            <Field
+                                id="movil"
+                                name="movil"
+                                type="text"
+                                className={inputClass}
+                            />
+                            <ErrorMessage name="movil" component="p" className="text-red-500 text-sm" />
+                        </div>
+
+                        {/* City Field */}
+                        <div>
+                            <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-1">
+                                Ciudad
+                            </label>
+                            <Field
+                                id="city"
+                                name="city"
+                                type="text"
+                                className={inputClass}
+                            />
+                            <ErrorMessage name="city" component="p" className="text-red-500 text-sm" />
+                        </div>
+
+                        {/* Address Field */}
+                        <div>
+                            <label htmlFor="adress" className="block text-sm font-medium text-gray-700 mb-1">
+                                Dirección
+                            </label>
+                            <Field
+                                id="adress"
+                                name="adress"
+                                type="text"
+                                className={inputClass}
+                            />
+                            <ErrorMessage name="adress" component="p" className="text-red-500 text-sm" />
+                        </div>
+
+                        {/* Postcode Field */}
+                        <div>
+                            <label htmlFor="postCode" className="block text-sm font-medium text-gray-700 mb-1">
+                                Código Postal
+                            </label>
+                            <Field
+                                id="postCode"
+                                name="postCode"
+                                type="text"
+                                className={inputClass}
+                            />
+                            <ErrorMessage name="postCode" component="p" className="text-red-500 text-sm" />
+                        </div>
+
+                        {/* Email Field */}
+                        <div>
+                            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                                Email
+                            </label>
+                            <Field
+                                id="email"
+                                name="email"
+                                type="email"
+                                className={inputClass}
+                            />
+                            <ErrorMessage name="email" component="p" className="text-red-500 text-sm" />
+                        </div>
+
+                        {/* Submit Button */}
+                        <div className="flex items-center justify-center h-24 w-full">
+                            <Button classes="cardButton">ENVIAR PEDIDO</Button>
+                        </div>
+                    </Form>
+                )}
+            </Formik>
         </div>
     );
-}
+};
 
 export default FormConfirm;

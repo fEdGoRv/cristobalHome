@@ -6,6 +6,7 @@ import { modalActions } from "../store/modalSlice";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart.items);
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
   const totalAmount = cart.reduce((acc, item) => acc + item.totalPrice, 0);
   const dispatch = useDispatch();
   const handleConfirmation = () => {
@@ -14,6 +15,12 @@ const Cart = () => {
 
   return (
     <div className="text-center">
+      {totalQuantity < 10 &&
+        <div className="m-2 text-center text-morao font-josefin font-bold text-xl">
+          <p>El minimo son 10 articulos,</p>
+          <p>deberias agregar {10 - totalQuantity} para realizar tu pedido.</p>
+        </div>
+      }
       <h1 className="text-2xl text-center text-morao bg-grisCard">
         Tu carrito
       </h1>
@@ -38,9 +45,10 @@ const Cart = () => {
       <div className="text-2xl p-2 w-full m-auto text-morao bg-grisCard">
         Monto Total: {totalAmount}
       </div>
-      <Button onClick={handleConfirmation}>
-        CONFIRMA PEDIDO
-      </Button>
+      {totalQuantity >= 10 &&
+        <Button onClick={handleConfirmation}>
+          CONFIRMA PEDIDO
+        </Button>}
     </div>
   );
 };

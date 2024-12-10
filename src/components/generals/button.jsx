@@ -14,7 +14,7 @@ export default function Button({ children, classes, ...props }) {
 
   const cartItemButton = `w-6 rounded-full ${defButton}`;
 
-  const modalCancel = ` w-8 ${defButton}`;
+  const modalCancel = "w-8 hover:bg-stone-400 bg-morao p-2 font-semibold font-lora hover:bg-stone-400 transform transition-all duration-700 text-white text-xl p-2 m-1 rounded shadow-lg";
 
   const detail =
     "m-2 p-2 rounded transform transition-all duration-700 borde-solid border-2 border-morao font-semibold text-stone-800 hover:border-none hover:bg-stone-800 hover:text-white";

@@ -27,7 +27,6 @@ const Main = () => {
     dispatch(modalActions.closeModalHandler());
   };
   const navigation = useNavigation();
-  console.log(toastifyState)
   return (
     <div
       //className={`bg-${path === "/" ? "title-about" : "white"} bg-cover bg-center h-screen`}

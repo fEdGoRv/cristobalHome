@@ -5,7 +5,6 @@ const cardCategoriesSlice = createSlice({
   initialState: {
     animation: "", 
     active: false, 
-    activeB: false,
     activeCarousel: false
   },
   reducers: {
@@ -14,9 +13,6 @@ const cardCategoriesSlice = createSlice({
     },
     handleActive(state, action) {
       action.payload !== undefined ? state.active = action.payload : state.active;
-    },
-    handleActiveB(state, action) {
-      action.payload !== undefined ? state.activeB = action.payload : state.activeB;
     },
     handleCarousel(state, action) {
       action.payload !== undefined ? state.activeCarousel = action.payload : state.activeCarousel;

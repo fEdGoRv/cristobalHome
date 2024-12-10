@@ -28,14 +28,6 @@ const SlideCards = () => {
         });
     }
 
-    // useEffect(() => {
-    //     const timer = setInterval(() => {
-    //         nextSlice();
-    //     }, 5000);
-
-    //     return () => clearInterval(timer);
-    // }, []);
-
     useEffect(() => {
         setDisplayingObject(allProd.slice(currentIndex, cardsPerSlice + currentIndex));
     }, [currentIndex]);
@@ -59,7 +51,7 @@ const SlideCards = () => {
                 </div>
             </div>
             <div 
-            className="relative flex"
+            className="relative flex "
             onMouseEnter={()=>dispatch(cardCategoriesActions.handleCarousel(true))}
             onMouseLeave={()=>dispatch(cardCategoriesActions.handleCarousel(false))}
             >
@@ -68,9 +60,9 @@ const SlideCards = () => {
                         <img className="w-16" src={left} alt="left-arrow" />
                     </Button>
                 </div>
-                <div className="flex justify-center ">
+                <div className="flex justify-center">
                 {displayingObjects.map(prod =>
-                    <div key={prod.id} className="m-4 text-center">
+                    <div key={prod.id} className="m-4 h-full text-center">
                         <Card
                             id={prod.id}
                             name={prod.name}

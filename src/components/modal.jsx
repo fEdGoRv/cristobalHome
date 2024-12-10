@@ -6,13 +6,13 @@ const Modal = ({ children, onClose, isOpen }) => {
 
   if (!isOpen) return null;
   const stopPropagation = (e) => e.stopPropagation();
-  const animation = useSelector(state => state.modal.animation);
+  const detailModal = useSelector(state => state.modal.detailModal);
  
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
       <dialog
         open={isOpen}
-        className={`p-6 w-full z-50 ${animation ? "max-w-4xl h-1/2" : "max-w-4xl h-auto"}`}
+        className={`p-6 w-full z-50 ${detailModal ? "max-w-4xl h-1/2" : "max-w-4xl h-auto"}`}
         onClick= {()=>onClose()}
       >
         <div className="flex flex-row-reverse w-full">

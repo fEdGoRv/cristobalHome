@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import Button from "./generals/button";
 import { cartActions } from "../store/cartSlice";
 import { modalActions } from "../store/modalSlice";
-import Loader from "./loader";
+import Loader from "./generals/loader";
+import { toastifyActions } from "../store/toastifySlice";
 
 const ItemDetails = () => {
   const dispatch = useDispatch();
@@ -80,7 +81,10 @@ const ItemDetails = () => {
         name: product.name,
         price: product.price,
         image: product.image,
-      }),
+      })
+    );
+    dispatch(
+      toastifyActions.handleDisplayToastify("addItemToCart")
     );
   };
     //"flex justify-center items-center"

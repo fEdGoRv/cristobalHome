@@ -9,7 +9,7 @@ import { modalActions } from "../../store/modalSlice";
 import Footer from "./footer";
 import ItemDetails from "../itemDetails";
 import ScrollToTop from "../scrollToTop";
-import Loader from "../loader";
+import Loader from "../generals/loader";
 import FormConfirm from "../formCorfirmShopping";
 import Toastify from "../generals/toastify";
 
@@ -19,9 +19,7 @@ const Main = () => {
   const cartModal = useSelector(state => state.modal.cartModal);
   const detailModal = useSelector(state => state.modal.detailModal);
   const formModal = useSelector(state => state.modal.formModal);
-  const toastifyState = useSelector(state => state.toastify.toast)
-  const location = useLocation();
-  let path = location.pathname;
+  const toastifyState = useSelector(state => state.toastify.toast);
 
   const onClose = () => {
     dispatch(modalActions.closeModalHandler());

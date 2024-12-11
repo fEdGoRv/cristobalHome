@@ -10,7 +10,7 @@ import Contact from './components/pages/contact';
 import Help from './components/pages/help';
 import DetailProdPage from './components/pages/detailProdPage';
 import ErrorDisplayer from './components/pages/error';
-import Loader from './components/loader';
+import Loader from './components/generals/loader';
 
 
 const Shop = React.lazy(() => import('./components/product/shop'));

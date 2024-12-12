@@ -1,4 +1,4 @@
-import { Outlet, useLocation, useNavigation } from "react-router-dom";
+import { Outlet, useNavigation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { HeaderProvider } from "../../store/HeaderContext";
@@ -26,9 +26,7 @@ const Main = () => {
   };
   const navigation = useNavigation();
   return (
-    <div
-      //className={`bg-${path === "/" ? "title-about" : "white"} bg-cover bg-center h-screen`}
-    >
+    <div>
       <ScrollToTop />
       <HeaderProvider>
         <Header />

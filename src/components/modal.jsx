@@ -10,9 +10,9 @@ const Modal = ({ children, onClose, isOpen }) => {
  
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-      <dialog
+      <div
         open={isOpen}
-        className={`p-6 w-full z-50 ${detailModal ? "max-w-4xl h-1/2" : "max-w-4xl h-auto"}`}
+        className={`p-6 w-full z-50 bg-white ${detailModal ? "max-w-4xl h-1/2" : "max-w-4xl h-auto"}`}
         onClick= {()=>onClose()}
       >
         <div className="flex flex-row-reverse w-full">
@@ -25,7 +25,7 @@ const Modal = ({ children, onClose, isOpen }) => {
         <div onClick={stopPropagation} className="">
           {children}
         </div>
-      </dialog>
+      </div>
     </div>
   );
 };

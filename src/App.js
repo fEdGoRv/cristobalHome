@@ -11,6 +11,7 @@ import Help from './components/pages/help';
 import DetailProdPage from './components/pages/detailProdPage';
 import ErrorDisplayer from './components/pages/error';
 import Loader from './components/generals/loader';
+import ErrorBoundary from './components/errorBoundery';
 
 
 const Shop = React.lazy(() => import('./components/product/shop'));
@@ -19,7 +20,7 @@ const Shop = React.lazy(() => import('./components/product/shop'));
 const router = createBrowserRouter([
     {
       path: '/',
-      element: <Main />,
+      element: <ErrorBoundary><Main /></ErrorBoundary>,
       errorElement: <ErrorDisplayer />,
       children: [
         { index: true, element: <Home />,  },
@@ -31,7 +32,9 @@ const router = createBrowserRouter([
         { path: ':prodId', element: <DetailProdPage />}
       ],
     },
-  ]);
+  ],
+  
+);
 
 
 function App() {

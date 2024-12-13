@@ -1,6 +1,7 @@
 import Button from "./generals/button";
 import cancel from "../util/icons/modalCancel.png";
 import { useSelector } from "react-redux";
+import { createPortal } from 'react-dom';
 
 const Modal = ({ children, onClose, isOpen }) => {
 
@@ -8,7 +9,7 @@ const Modal = ({ children, onClose, isOpen }) => {
   const stopPropagation = (e) => e.stopPropagation();
   const detailModal = useSelector(state => state.modal.detailModal);
  
-  return (
+  return createPortal(
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
       <div
         open={isOpen}
@@ -27,7 +28,8 @@ const Modal = ({ children, onClose, isOpen }) => {
         </div>
       </div>
     </div>
-  );
+  , document.getElementById("modal")
+)
 };
 
 export default Modal;

@@ -28,7 +28,7 @@ function ShowMaps(){
         <APIProvider apiKey={apiKey}>
             <div style={mapContainerStyle}>
                 <Map
-                zoom={16}
+                defaultZoom={16}
                 center={shopLocation}
                 mapId={mId}
                 >

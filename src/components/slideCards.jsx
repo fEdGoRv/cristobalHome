@@ -55,7 +55,7 @@ const SlideCards = () => {
             onMouseEnter={()=>dispatch(cardCategoriesActions.handleCarousel(true))}
             onMouseLeave={()=>dispatch(cardCategoriesActions.handleCarousel(false))}
             >
-                <div className="absolute w-16 h-12 top-36 -left-4">
+                <div className="absolute w-16 h-12 top-36 -left-4 z-50">
                     <Button classes="carousel" onClick={nextSlice}>
                         <img className="w-16" src={left} alt="left-arrow" />
                     </Button>
@@ -73,7 +73,7 @@ const SlideCards = () => {
                         <p>{prod.name}</p>
                     </div>)}
                 </div>
-                <div className="absolute w-16 h-12 top-36 right-0">
+                <div className="absolute w-16 h-12 top-36 right-0 z-50">
                     <Button classes="carousel" onClick={lastSlice}>
                         <img className="w-16" src={right} alt="right-arrow" />
                     </Button>

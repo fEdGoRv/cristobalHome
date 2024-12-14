@@ -29,7 +29,9 @@ const Main = () => {
     <div>
       <ScrollToTop />
       <HeaderProvider>
+        <div className="h-24">
         <Header />
+        </div>
         {navigation.state === "loading" && <div className="grid place-items-center"><Loader /></div>}
         {toastifyState !== "" && toastifyState !== undefined && <Toastify type={toastifyState} />}
         <Modal isOpen={isOpen} onClose={onClose}>

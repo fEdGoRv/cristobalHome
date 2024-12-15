@@ -22,16 +22,16 @@ const cardData = [
 const AboutUs = () => {
   return (
     <div className="mt-12">
-      <div className="flex justify-center items-center h-44 w-full text-stone-800 sm:text-white text-6xl font-playfair font-bold bg-cover bg-center bg-title-about">
+      <div className="flex justify-center items-center h-44 w-full text-stone-800 sm:text-white text-2xl md:text-6xl font-playfair font-bold bg-cover bg-center bg-title-about">
         <h1>Christobal Home</h1>
       </div>
       <div className="flex justify-center m-4">
-        <div className="w-5/12 text-left mt-16 ">
+        <div className="w-2/3 md:w-5/12 text-left md:mt-8 ">
           <div className="mt-6">
-            <h2 className="p-4 font-playfair font-bold text-4xl">
+            <h2 className="p-2 text-xl md:text-4xl md:p-4 font-playfair font-bold ">
               ¿Quienes Somos?
             </h2>
-            <p className="font-lora font-semibold p-4 opacity-50">
+            <p className="p-2 font-lora font-semibold md:p-4 opacity-50">
               Chistobal Home es una empresa dedicada a la venta de artículos de
               decoración, de diseño propio en chapa, madera y tela. Nuestro
               taller se encuentra ubicado en la ciudad de Azul. Cuenta con
@@ -40,7 +40,7 @@ const AboutUs = () => {
             </p>
           </div>
           <div className="mt-6">
-            <h2 className=" p-4 font-playfair font-bold text-4xl">
+            <h2 className="text-xl p-2 font-playfair font-bold md:p-4 md:text-4xl">
               Nuestro comienzo
             </h2>
             <p className="font-lora font-semibold p-4 opacity-50">
@@ -52,7 +52,7 @@ const AboutUs = () => {
             </p>
           </div>
         </div>
-        <div className="hidden lg:block w-2/12 m-12">
+        <div className="hidden lg:block w-72 m-16 xl:m-12">
           <img src="/pinchos/DSC_2895.jpg" alt="lechu" />
         </div>
       </div>

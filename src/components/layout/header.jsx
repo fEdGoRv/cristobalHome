@@ -70,16 +70,20 @@ export default function Header() {
 
   return (
     <>
-      <div className={`block md:hidden relative flex justify-between items-center`}>
+      <div className={`block md:hidden relative flex justify-between items-center p-2`}>
         <img
           className="hover:cursor-pointer mt-4 w-12"
           onClick={() => setBurgerList(prevState => !prevState)}
           src={burger}
           alt="burger"
         />
-        <div onClick={openModal}>
+        <div onClick={openModal} className="p-2">
           <span className="flex text-black px-2 pt-2">
-            <div className="pr-2">{totalQuantity > 0 && totalQuantity}</div>
+          {totalQuantity > 0 && <span
+              className="absolute top-[25px] right-[10px] bg-morao text-white text-xs rounded-full h-5 w-5 flex items-center justify-center"
+            >
+              {totalQuantity}
+            </span>}
             <img src={cart} className="hover:cursor-pointer" alt="cart/logo" />
           </span>
         </div>

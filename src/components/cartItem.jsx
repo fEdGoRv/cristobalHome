@@ -24,12 +24,12 @@ const CartItem = (props) => {
   };
 
   return (
-    <div className="flex flex-row items-center justify-center">
+    <div className="flex flex-row place-items-center justify-center">
       <div className="max-w-10">
         <img src={`/pinchos/${image}`} alt="foti" />
       </div>
       <div className="flex">
-        <p className="w-96">
+        <p className="flex w-96 place-items-center">
           {name} -precio unitario: ${price} -{" "}
         </p>
         <div className="max-h-10">
@@ -37,13 +37,13 @@ const CartItem = (props) => {
             <img src={plusIcon} alt="suma" />
           </Button>
         </div>
-        <h6>{quantity}</h6>
+        <h6 className="flex place-items-center">{quantity}</h6>
         <div className="max-h-10">
           <Button classes="cartItem" onClick={removeItem}>
             <img src={lessIcon} alt="rsta" />
           </Button>
         </div>
-        <p>Precio total: {totalPrice}</p>
+        <p className="flex place-items-center">Precio total: {totalPrice}</p>
       </div>
     </div>
   );

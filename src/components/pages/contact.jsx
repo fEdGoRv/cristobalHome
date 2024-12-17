@@ -25,7 +25,7 @@ const Contact = () => {
           <Instagram />
           </div>
         </div>
-        <div className='w-[900px] h-[600px] m-4'>
+        <div className='w-[400px] h-[300px] m-auto md:m-4 md:w-[900px] md:h-[600px] m-4'>
            <ShowMaps />
         </div>
       </div>

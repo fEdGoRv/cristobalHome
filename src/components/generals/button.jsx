@@ -2,10 +2,9 @@ import { useSelector } from "react-redux";
 
 
 export default function Button({ children, classes, ...props }) {
-  const active = useSelector((state) => state.cardCategories.active);
   const activeCarousel = useSelector((state) => state.cardCategories.activeCarousel);
   
-  const cardCatButton =`action m-1 rounded-md bg-stone-800 py-2 px-4 border border-transparent text-center text-sm text-white shadow-md transform transition-all duration-700 hover:bg-morao  ${active ? "active" : ""}`;
+  const cardCatButton ="m-1 font-josefin font-bold rounded-md bg-stone-800 py-2 px-4 border border-transparent text-center text-md text-white shadow-md transform transition-all duration-700 hover:bg-morao";
   
   const cardButton =
     "m-1 rounded-md font-semibold bg-stone-800 py-2 px-4 border border-transparent text-center text-sm text-white shadow-md transform transition-all duration-700 hover:bg-morao";

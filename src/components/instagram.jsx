@@ -9,10 +9,10 @@ const Instagram = () => {
                 rel="noopener noreferrer"
             >
                 <img className='w-16 m-auto' src={insta} alt="instagram" />
-            </a>
-            <p className='text-2xl text-morao font-josefin font-semibold p-4'>
+                <p className='text-2xl text-morao font-josefin font-semibold p-4'>
                 @cristobalhomegarden
             </p>
+            </a>
         </>
     )
 }

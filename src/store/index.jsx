@@ -3,6 +3,7 @@ import cartSlice from "./cartSlice";
 import { modalReducer } from "./modalSlice";
 import { cardCategoriesReducer } from "./cardCategoriesSlice";import {Suspense} from 'react'
 import { toastifyReducer } from "./toastifySlice";
+import { questionReducer } from "./questionSlice";
 
 
 const store = configureStore({
@@ -10,7 +11,8 @@ const store = configureStore({
     cart: cartSlice.reducer,
     modal: modalReducer,
     cardCategories: cardCategoriesReducer,
-    toastify: toastifyReducer
+    toastify: toastifyReducer,
+    question: questionReducer
   },
 });
 

@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import emailjs from "@emailjs/browser";
 
 import Button from './generals/button'
 import { cartActions } from '../store/cartSlice';
@@ -11,6 +12,9 @@ const FormConfirm = () => {
 
     const cart = useSelector(state => state.cart.items);
     const dispatch = useDispatch();
+    const emailjsPublicKey = "LX6IFJ6QnsUVb38ex";
+    const serviceId = "cristobalHomePage";
+    const templateId = "template_pdbm214";
 
     const inputClass = "w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400";
 
@@ -22,7 +26,7 @@ const FormConfirm = () => {
             .required("Este campo es obligatorio.")
             .matches(/^\d{10,}$/, "El numero de telefono debe tener 10 digitos."),
         city: Yup.string().required("Este campo es obligatorio."),
-        adress: Yup.string().required("Este campo es obligatotio."),
+        address: Yup.string().required("Este campo es obligatotio."),
         postCode: Yup.string()
             .required("Este campo es obligatotio.")
             .matches(/^\d+$/, "El codigo postal debe ser un numero."),
@@ -35,16 +39,43 @@ const FormConfirm = () => {
         name: "",
         movil: "",
         city: "",
-        adress: "",
+        address: "",
         postCode: "",
         email: "",
     };
 
+    const sendEmail = (formData) => {
+        emailjs
+            .send(serviceId, templateId, formData, emailjsPublicKey)
+            .then(
+                (result) => {
+                    console.log("Email sent:", result.text);
+                    alert("Order email sent successfully!");
+                },
+                (error) => {
+                    console.log("Error:", error.text);
+                    alert("Failed to send email.");
+                }
+            );
+    };
+
+    const formatCartItems = (cart) => {
+        return cart.map(item => `${item.name} x ${item.quantity}`).join(", ");
+    };
+
     const handleSubmit = (values, { resetForm }) => {
+        console.log("arriveing to handleSubmittion");
         const formData = {
-            customer: values,
-            items: cart,
+            name: values.name,
+            movil: values.movil,
+            city: values.city,
+            address: values.address,
+            postCode: values.postCode,
+            email: values.email,
+            cartItems: formatCartItems(cart),
         };
+
+        sendEmail(formData);
         console.log(formData);
         resetForm();
         dispatch(cartActions.clearCart());
@@ -64,7 +95,6 @@ const FormConfirm = () => {
             >
                 {() => (
                     <Form className="space-y-4">
-                        {/* Name Field */}
                         <div>
                             <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                                 Nombre y Apellido
@@ -78,7 +108,6 @@ const FormConfirm = () => {
                             <ErrorMessage name="name" component="p" className="text-red-500 text-sm" />
                         </div>
 
-                        {/* Phone Field */}
                         <div>
                             <label htmlFor="movil" className="block text-sm font-medium text-gray-700 mb-1">
                                 Teléfono
@@ -92,7 +121,6 @@ const FormConfirm = () => {
                             <ErrorMessage name="movil" component="p" className="text-red-500 text-sm" />
                         </div>
 
-                        {/* City Field */}
                         <div>
                             <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-1">
                                 Ciudad
@@ -106,21 +134,19 @@ const FormConfirm = () => {
                             <ErrorMessage name="city" component="p" className="text-red-500 text-sm" />
                         </div>
 
-                        {/* Address Field */}
                         <div>
-                            <label htmlFor="adress" className="block text-sm font-medium text-gray-700 mb-1">
+                            <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-1">
                                 Dirección
                             </label>
                             <Field
-                                id="adress"
-                                name="adress"
+                                id="address"
+                                name="address"
                                 type="text"
                                 className={inputClass}
                             />
-                            <ErrorMessage name="adress" component="p" className="text-red-500 text-sm" />
+                            <ErrorMessage name="address" component="p" className="text-red-500 text-sm" />
                         </div>
 
-                        {/* Postcode Field */}
                         <div>
                             <label htmlFor="postCode" className="block text-sm font-medium text-gray-700 mb-1">
                                 Código Postal
@@ -134,7 +160,6 @@ const FormConfirm = () => {
                             <ErrorMessage name="postCode" component="p" className="text-red-500 text-sm" />
                         </div>
 
-                        {/* Email Field */}
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                                 Email
@@ -148,7 +173,6 @@ const FormConfirm = () => {
                             <ErrorMessage name="email" component="p" className="text-red-500 text-sm" />
                         </div>
 
-                        {/* Submit Button */}
                         <div className="flex items-center justify-center h-24 w-full">
                             <Button classes="cardButton">ENVIAR PEDIDO</Button>
                         </div>
